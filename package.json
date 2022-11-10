@@ -1,0 +1,36 @@
+{
+  "name": "step3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp dev",
+    "build": "gulp build"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/step_project_3/step_project_3_advancedjs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/step_project_3/step_project_3_advancedjs/issues"
+  },
+  "homepage": "https://gitlab.com/step_project_3/step_project_3_advancedjs#readme",
+  "devDependencies": {
+    "browser-sync": "^2.27.10",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^8.0.0",
+    "gulp-js-minify": "^0.0.3",
+    "gulp-sass": "^5.1.0",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.56.1"
+  },
+  "type": "module"
+}
