@@ -1,4 +1,4 @@
- export const getCards = async () => {
+export const getCards = async () => {
 if (localStorage.getItem('token')) {
     fetch('https://ajax.test-danit.com/api/v2/cards', {
         headers: {
