@@ -25,8 +25,8 @@ export class Authorization {
             const password = document.querySelector(".password_form_item").value;
             let requestLogin = new MyLogin(email, password).request();
             requestLogin.then((resoult) => {
-                if ( resoult === 200){
-                    token === "Incorrect username or password"
+                if (resoult === 200){
+                    document.body.innerHTML= "Incorrect username or password"
                 } else {
                     localStorage.setItem('token', token);
                     this.container_login.disapear();
