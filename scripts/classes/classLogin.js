@@ -1,9 +1,5 @@
 
-let userLogin = "";
-let userPassword = "";
-let  userToken = "";
-
-export class myLogin {
+export class MyLogin {
     constructor(email, password) {
         this.email = email;
         this.password = password;
@@ -19,13 +15,7 @@ export class myLogin {
                 password: this.password,
             }),
         })
-            .then((response) => response.text())
-            .then((token) => {
-                userToken = token;
-                userLogin = this.email;
-                userPassword = this.password;
-                return token;
-            });
+
     }
 }
 
