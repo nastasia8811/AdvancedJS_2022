@@ -1,8 +1,12 @@
+
 export const myLogin = async () => {
     try {
         const login = await fetch('https://ajax.test-danit.com/api/v2/cards/login', {
             method: 'POST',
-            body: JSON.stringify({email: 'nastasia8811@yahoo.com', password: 'ajax'}),
+            body: JSON.stringify({
+                email: this.email,
+                password: this.password,
+            }),
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -17,6 +21,7 @@ export const myLogin = async () => {
         console.error(err);
     }
 }
+
 
 
 
