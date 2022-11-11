@@ -1,46 +1,33 @@
+import deleteCard from "../functions/deleteCard.js"
 let cardsArr = ""
 
-class DrowCards {
-    request() {
-        return fetch("https://ajax.test-danit.com/api/v2/cards", {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${userToken}`,
-            },
-        })
-            .then((response) => response.json())
-            .then((arr) => {
-                cardsArr = arr.filter((element) => {
-                    return !!element.doctorType;
-                });
-                return arr.filter((element) => {
-                    return !!element.doctorType;
-                });
-            });
+export class DrowCards {
+    constructor(doctor, data, reason, dropdoun, clientName,id) {
+        this.doctor = doctor;
+        this.data = data;
+        this.reason = reason;
+        this.dropdoun = dropdoun;
+        this.clientName = clientName;
+        this.container = document.createElement('div');
+        this.deleteButton = document.createElement("button");
+        this.id = id;
     }
 
-    render() {
-        this.request().then((arr) => {
-            if (!arr.length) {
-                document.querySelector(".noCardsBox").innerText = "карток не знайдено";
-            } else {
-                document.querySelector(".noCardsBox").innerText = "";
-            }
-            arr.forEach((element) => {
-                new Card(element).render();
-            });
-        });
-    }
-    renderFromArr(arr) {
-        if (!arr.length) {
-            document.querySelector(".noCardsBox").innerText = "карток не знайдено";
-        } else {
-            document.querySelector(".noCardsBox").innerText = "";
-        }
-        document.querySelector("#cardsRoot").innerHTML = "";
-        arr.forEach((element) => {
-            new Card(element).render();
-        });
-    }
-}
+    createElements() {
+        this.container.insertAdjacentHTML('beforeend', `<p>${this.doctor}</p>
+                                                                    <ul>
+                                                                    <li>${this.data}</li>
+                                                                    <li>${this.reason}</li>
+                                                                    <li>${this.dropdoun}</li>
+                                                                    <li>${this.clientName}</li>
+                                                                    </ul>`);
+
+        this.container.className = `card`;
+        document.body.append(this.container);
+        this.deleteButton.innerHTML = "Delete";
+        this.container.append(this.deleteButton);
+        this.deleteButton.addEventListener("click", () => {
+            deleteCard(this.id, this.container)
+
+        })
+    }}
