@@ -14,8 +14,6 @@ export class MyLogin {
                 email: this.email,
                 password: this.password,
             }),
-        }).then(res=>{
-            res
         })
 
     }
