@@ -1,8 +1,5 @@
-
-
-
-
 import DrowCards from "../classes/classDrowCards.js"
+
 export const getCard = async () => {
     if (localStorage.getItem('token')) {
         fetch(`https://ajax.test-danit.com/api/v2/cards/${this.id}`, {
@@ -13,8 +10,8 @@ export const getCard = async () => {
             .then(res => res.json())
             .then(userCards =>{
         const filterCard = userCards.filter((card) => card.id === id);
-        filterCard.forEach(({doctor, data, reason,dropdoun,clientName,id}) => {
-            new DrowCards(doctor, data, reason,dropdoun,clientName,id).createElements();
+        filterCard.forEach(({doctor, data, reason,priority,clientName,id}) => {
+            new DrowCards(doctor, data, reason,priority,clientName,id).createElements();
         })})
 
     } else {

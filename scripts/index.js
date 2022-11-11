@@ -1,19 +1,20 @@
-import {myLogin} from "./api/myLogin.js";
-//import {Authorization} from "./classes/classModalAuthorization";
+
+import {Authorization} from "./classes/classModalAuthorization.js";
+
+
 // import {getCards} from "./api/getCards.js";
 // import {createCards} from "./api/createCard.js";
- //import {myLogin} from "./classes/classLogin.js";
+
+
 
 
 const header = document.body.querySelector('.header')
-header.insertAdjacentHTML('beforeend',`<div class="logo">LOGO</div><button class="button">Вхід</button>` )
-const button = document.body.querySelector('.button')
+header.insertAdjacentHTML('beforeend',`<div class="logo">LOGO</div><button class="header_button">Вхід</button>` )
+const button = document.body.querySelector('.header_button')
 button.addEventListener("click", () => {
-    // new Authorization()
-// if (myLogin(this.email,this.password)){
-//     getCards()
-// }
+   new Authorization().createElements();
 })
+
 
 const bodyContainer = document.body.querySelector('.body_container')
 bodyContainer.insertAdjacentHTML('beforeend',`<form class="form" action="#" method="POST">
