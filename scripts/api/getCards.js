@@ -8,6 +8,7 @@ if (localStorage.getItem('token')) {
     })
         .then(res => res.json())
         .then(data => console.log(data))
+
 } else {
     document.body.innerHTML = 'PLS LOGIN'
 }
