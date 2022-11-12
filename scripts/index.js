@@ -15,7 +15,6 @@ button.addEventListener("click", () => {
    new Authorization().createElements();
 })
 
-
 const bodyContainer = document.body.querySelector('.body_container')
 bodyContainer.insertAdjacentHTML('beforeend',`<form class="form" action="#" method="POST">
           <input class="form_item" placeholder="пошук за заголовком/вмістом візиту">
@@ -24,4 +23,3 @@ bodyContainer.insertAdjacentHTML('beforeend',`<form class="form" action="#" meth
       </form>`);
 
 
-// createCards()
