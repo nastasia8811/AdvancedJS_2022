@@ -1,11 +1,10 @@
 import {MyLogin} from "./classLogin.js";
-import {Filter} from "./classFilter.js";
+//import {Filter} from "./classFilter.js";
 import {changeButton} from "../functions/changeButton.js"
 //import {DrawCards} from "./classDrawCards.js"
 
 export class Authorization {
     constructor() {
-
         this.container_login = document.createElement('div');
         this.loginButton = document.createElement("button");
     }
@@ -23,16 +22,16 @@ export class Authorization {
             const email = document.querySelector(".email_form_item").value;
             const password = document.querySelector(".password_form_item").value;
             const authorisationResult = new MyLogin(email, password).request();
-            changeButton()
+            //changeButton()
             // this.container_login.disapear();
             // this.loginButton.login();
         })
     }
 
-    login() {
-        new Filter().apear();
-        new DrowCards().createElements();
-    }
+    // login() {
+    //     // new Filter().apear();
+    //     // new DrowCards().createElements();
+    // }
 
 }
 
