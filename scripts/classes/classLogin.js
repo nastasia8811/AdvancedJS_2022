@@ -6,7 +6,7 @@ export class MyLogin {
 
     request() {
 
-        fetch("https://ajax.test-danit.com/api/v2/cards/login", {
+        return fetch("https://ajax.test-danit.com/api/v2/cards/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -15,15 +15,16 @@ export class MyLogin {
                 email: this.email,
                 password: this.password,
             }),
-        }).then(res => {
-            console.log(res.text())
         })
-            .then(token => {
-                    if (token === 200) {
-                        localStorage.getItem('token', token)
-                    }
+            .then(res => {
+                if (res.status === 200){
+                    return res.text()
+                }else {
+                    return "incorrect email or password"
                 }
-            )
+
+                })
+
     }
 }
 
