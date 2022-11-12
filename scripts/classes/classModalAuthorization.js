@@ -1,6 +1,6 @@
 import {MyLogin} from "./classLogin.js";
 import {Filter} from "./classFilter.js";
-//import {DrowCards} from "./classDrowCards.js"
+//import {DrawCards} from "./classDrawCards.js"
 
 export class Authorization {
     constructor() {
