@@ -1,6 +1,6 @@
 import {MyLogin} from "./classLogin.js";
 //import {Filter} from "./classFilter.js";
-//import {changeButton} from "../functions/changeButton.js"
+import {changeButton} from "../functions/changeButton.js"
 //import {DrawCards} from "./classDrawCards.js"
 
 export class Authorization {
