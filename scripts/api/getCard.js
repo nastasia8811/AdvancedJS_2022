@@ -1,4 +1,4 @@
-// import DrowCards from "../classes/classDrowCards.js"
+// import DrawCards from "../classes/classDrawCards.js"
 //
 // export const getCard = async () => {
 //     if (localStorage.getItem('token')) {
@@ -11,7 +11,7 @@
 //             .then(userCards =>{
 //         const filterCard = userCards.filter((card) => card.id === id);
 //         filterCard.forEach(({doctor, data, reason,priority,clientName,id}) => {
-//             new DrowCards(doctor, data, reason,priority,clientName,id).createElements();
+//             new DrawCards(doctor, data, reason,priority,clientName,id).createElements();
 //         })})
 //
 //     } else {
