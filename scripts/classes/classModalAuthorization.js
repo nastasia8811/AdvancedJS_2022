@@ -1,6 +1,8 @@
 import {MyLogin} from "./classLogin.js";
+import {getCards} from "../api/getCards.js";
+import {headerButton} from "../constanta.js";
 //import {Filter} from "./classFilter.js";
-import {changeButton} from "../functions/changeButton.js"
+
 //import {DrawCards} from "./classDrawCards.js"
 
 export class Authorization {
@@ -22,10 +24,23 @@ export class Authorization {
             const email = document.querySelector(".email_form_item").value;
             const password = document.querySelector(".password_form_item").value;
             const authorisationResult = new MyLogin(email, password).request();
+            authorisationResult.then((token) => {
+            if(token === "incorrect email or password" || email ==="" || password ===""){
+                return
+            }else {
+                localStorage.setItem('token', token);
+                getCards()
+            }
+            })
+            //             localStorage.getItem('token', token);
+                        // this.container_login.remove();
+                    // }else {
+                    //     document.body.innerText = "Incorrect username or password"
+                    // }
             //changeButton()
-            // this.container_login.disapear();
             // this.loginButton.login();
         })
+        //})
     }
 
     // login() {
