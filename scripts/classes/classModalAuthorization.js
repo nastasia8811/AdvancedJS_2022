@@ -1,5 +1,6 @@
 import {MyLogin} from "./classLogin.js";
 import {Filter} from "./classFilter.js";
+import {changeButton} from "../functions/changeButton.js"
 //import {DrawCards} from "./classDrawCards.js"
 
 export class Authorization {
@@ -21,8 +22,8 @@ export class Authorization {
         this.loginButton.addEventListener('click', () => {
             const email = document.querySelector(".email_form_item").value;
             const password = document.querySelector(".password_form_item").value;
-            new MyLogin(email, password).request();
-            console.log("hhh");
+            const authorisationResult = new MyLogin(email, password).request();
+            changeButton()
             // this.container_login.disapear();
             // this.loginButton.login();
         })
@@ -32,15 +33,6 @@ export class Authorization {
         new Filter().apear();
         new DrowCards().createElements();
     }
-
-    // changeBtn() {
-    //     document.querySelector(".header_button").id = "createCard";
-    //     document.querySelector(".header_button").innerText = "Створити картку";
-    // }
-    //
-    // disapear() {
-    //     this.container_login.remove();
-    // }
 
 }
 
