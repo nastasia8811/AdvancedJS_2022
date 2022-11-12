@@ -18,7 +18,7 @@ export class MyLogin {
             console.log(res.text())
         })
             .then(token => {
-                console.log(token)
+                localStorage.getItem('token', token)
             })
     }
 }

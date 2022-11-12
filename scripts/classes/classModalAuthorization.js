@@ -22,7 +22,7 @@ export class Authorization {
             const email = document.querySelector(".email_form_item").value;
             const password = document.querySelector(".password_form_item").value;
             new MyLogin(email, password).request();
-            console.log("hhh")
+            console.log("hhh");
             // this.container_login.disapear();
             // this.loginButton.login();
         })
