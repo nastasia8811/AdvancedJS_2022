@@ -5,7 +5,8 @@ export class MyLogin {
     }
 
     request() {
-        return fetch("https://ajax.test-danit.com/api/v2/cards/login", {
+
+        fetch("https://ajax.test-danit.com/api/v2/cards/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -18,12 +19,11 @@ export class MyLogin {
             console.log(res.text())
         })
             .then(token => {
-                localStorage.getItem('token', token)
-            })
+                    if (token === 200) {
+                        localStorage.getItem('token', token)
+                    }
+                }
+            )
     }
 }
-
-
-
-
 

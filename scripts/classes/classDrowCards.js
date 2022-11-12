@@ -1,7 +1,7 @@
 // import{deleteCard} from "../functions/deleteCard.js"
 //
 //
-// export class DrowCards {
+// export class DrawCards {
 //     constructor(doctor, data, reason, priority, clientName,id) {
 //         this.doctor = doctor;
 //         this.data = data;
