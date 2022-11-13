@@ -1,6 +1,9 @@
 //Мельник
 import {MyLogin} from "./classLogin.js";
 import {getCards} from "../api/getCards.js";
+//import {header, headerButton } from "../constanta.js";
+import {changeButton} from "../functions/changeButton.js";
+//import {loginFormRemove} from '../functions/loginFormRemove.js'
 import {headerButton} from "../constanta.js";
 //import {Filter} from "./classFilter.js";
 
@@ -8,7 +11,7 @@ import {headerButton} from "../constanta.js";
 
 export class Authorization {
     constructor() {
-        this.container_login = document.createElement('div');
+        this.container_login = document.createElement("div");
         this.loginButton = document.createElement("button");
     }
 
@@ -19,7 +22,7 @@ export class Authorization {
     </form>`);
         this.container_login.className = `login`;
         document.body.append(this.container_login);
-        this.loginButton.innerHTML = "LOGIN";
+        this.loginButton.innerHTML = 'LOGIN';
         this.container_login.append(this.loginButton);
         this.loginButton.addEventListener('click', () => {
             const email = document.querySelector(".email_form_item").value;
@@ -28,26 +31,22 @@ export class Authorization {
             authorisationResult.then((token) => {
             if(token === "incorrect email or password" || email ==="" || password ===""){
                 return
+
             }else {
                 localStorage.setItem('token', token);
                 getCards()
             }
             })
-            //             localStorage.getItem('token', token);
-                        // this.container_login.remove();
-                    // }else {
-                    //     document.body.innerText = "Incorrect username or password"
-                    // }
-            //changeButton()
-            // this.loginButton.login();
+            changeButton()
+            const loginFormRemove = () => {
+                this.container_login.remove();
+            }
+            loginFormRemove()
+            // new Filter().apear();
+            // new DrawCards().createElements();
         })
-        //})
-    }
 
-    // login() {
-    //     // new Filter().apear();
-    //     // new DrowCards().createElements();
-    // }
+    }
 
 }
 
