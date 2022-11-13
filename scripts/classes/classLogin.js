@@ -20,6 +20,7 @@ export class MyLogin {
             .then(res => {
                 if (res.status === 200){
                     return res.text()
+
                 }else {
                     return "incorrect email or password"
                 }

@@ -5,3 +5,7 @@ input {
     display: flex;
     align-items: flex-start;
 }
+.display_none {
+    display: none;
+}
+
