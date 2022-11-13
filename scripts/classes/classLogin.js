@@ -1,3 +1,4 @@
+//Мельник
 export class MyLogin {
     constructor(email, password) {
         this.email = email;
