@@ -6,6 +6,7 @@ import {filter, renderList} from "./functions/filterFunction.js"
 // import {getCards} from "./api/getCards.js";
 // import {createCards} from "./api/createCard.js";
 
+
 header.insertAdjacentHTML('beforeend', `<div class="logo">LOGO</div><button class="header_button">Вхід</button>`);
 const headerButton = document.body.querySelector('.header_button')
 headerButton.addEventListener("click", () => {
@@ -13,31 +14,32 @@ headerButton.addEventListener("click", () => {
 })
 
 
-// Filter
-// bodyContainer.insertAdjacentHTML('beforeend', ` <div class="filter_container">
-//  <input type="text" id="myFilter" placeholder="Введіть назву лікаря">
-//     <ul id="myUl">
-//         <li class="myUl-item"><a href="#">rrr</a></li>
-//         <li class="myUl-item"><a href="#">vvv</a></li>
-//         <li class="myUl-item"><a href="#">ddd</a></li>
-//     </ul>
-// </div>`);
-//document.querySelector('#myFilter').addEventListener("keydown", filterCard);
-
+// Filter___________
 bodyContainer.insertAdjacentHTML('beforeend', `<div class="filter_container">
-<input class="filter_doctor" type="text" id="search" placeholder="Введіть назву лікаря (Cardiologist, Dentist, Therapist)">
-    <ul id="results">
+<input class="filter_doctor" type="text" id="search_doctor" placeholder="Введіть назву лікаря (Cardiologist, Dentist, Therapist)">
+    <ul id="results_filter_doctor">
     </ul>
-<input class="filter_status" type="text" id="search" placeholder="Введіть cтатус візиту (Open/Done)">
-    <ul id="results">
+<input class="filter_status" type="text" id="search_status" placeholder="Введіть cтатус візиту (Open/Done)">
+    <ul id="results_filter_status">
     </ul>
-<input class="filter_priority" type="text" id="search" placeholder="Введіть терміновість візиту (High, Normal, Low)">
-    <ul id="results">
+<input class="filter_priority" type="text" id="search_priority" placeholder="Введіть терміновість візиту (High, Normal, Low)">
+    <ul id="results_filter_priority">
     </ul>
 </div>`);
 
-let list = ['JavaScript', 'Kotlin', 'Rust', 'PHP', 'Ruby', 'Java', 'MarkDown', 'Python', 'C++', 'Fortran', 'Assembler']
-const result = document.getElementById('results')
-renderList(list, result)
+let filterDoctor = ['Cardiologist', ', Dentist', 'Therapist']
+let filterStatus = ['Open', 'Done',]
+let filterPriority = ['High', 'Normal', 'Low']
 
-document.getElementById('search').addEventListener('input', e => renderList(filter(e.target.value, list), result))
+const resultsFilterDoctor = document.getElementById('results_filter_doctor')
+const resultsFilterStatus = document.getElementById('results_filter_status')
+const resultsFilterPriority = document.getElementById('results_filter_priority')
+
+renderList(filterDoctor, resultsFilterDoctor)
+renderList(filterStatus, resultsFilterStatus)
+renderList(filterPriority, resultsFilterPriority)
+
+document.getElementById('search_doctor').addEventListener('input', e => renderList(filter(e.target.value, filterDoctor), resultsFilterDoctor))
+document.getElementById('search_status').addEventListener('input', e => renderList(filter(e.target.value, filterStatus), resultsFilterStatus))
+document.getElementById('search_priority').addEventListener('input', e => renderList(filter(e.target.value, filterPriority), resultsFilterPriority))
+//Filter___________
