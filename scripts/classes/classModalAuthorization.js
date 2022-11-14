@@ -2,8 +2,11 @@
 import {MyLogin} from "./classLogin.js";
 import {getCards} from "../api/getCards.js";
 //import {header, headerButton } from "../constanta.js";
-import {changeButton} from "../functions/changeButton.js";
+import {changeButtonFunction} from "../functions/changeButton.js";
+//import {loginFormRemove} from '../functions/loginFormRemove.js'
+//import {headerButton} from "../constanta.js";
 //import {Filter} from "./classFilter.js";
+
 //import {DrawCards} from "./classDrawCards.js"
 
 export class Authorization {
@@ -29,13 +32,12 @@ export class Authorization {
                     if( token === "incorrect email or password" || email ==="" || password ===""){
                         return
 
-                    }else {
-                        localStorage.setItem('token', token);
-                        getCards()
-                        changeButton()
-                        this.container_login.remove();
-                    }
-
+            }else {
+                localStorage.setItem('token', token);
+                getCards()
+                changeButtonFunction()
+                this.container_login.remove();
+            }
             })
             // new Filter().apear();
             // new DrawCards().createElements();

@@ -1,7 +1,9 @@
 //Мельник
-import {header, headerButton} from "../constanta.js";
 
-export const changeButton = () => {
-    header.insertAdjacentHTML('beforeend', `<button class="change_button">Create visit</button>`);
+import {headerButton, changeButton} from "../constanta.js";
+
+export const changeButtonFunction = () => {
+    changeButton.classList.remove('.display_none')
+    changeButton.classList.add('active')
     headerButton.remove()
 }
