@@ -1,0 +1,14 @@
+input {
+    width: 25%;
+}
+.filter_container {
+    display: flex;
+    align-items: flex-start;
+}
+.display_none {
+    display: none;
+}
+
+.active {
+    display: block;
+}

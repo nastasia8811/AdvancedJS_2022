@@ -1,3 +1,4 @@
+//Мельник
 export class MyLogin {
     constructor(email, password) {
         this.email = email;
@@ -5,6 +6,7 @@ export class MyLogin {
     }
 
     request() {
+
         return fetch("https://ajax.test-danit.com/api/v2/cards/login", {
             method: "POST",
             headers: {
@@ -14,16 +16,17 @@ export class MyLogin {
                 email: this.email,
                 password: this.password,
             }),
-        }).then(res => {
-            console.log(res.text())
         })
-            .then(token => {
-                console.log(token)
-            })
+            .then(res => {
+                if (res.status === 200){
+                    return res.text()
+
+                }else {
+                    return "incorrect email or password"
+                }
+
+                })
+
     }
 }
-
-
-
-
 
