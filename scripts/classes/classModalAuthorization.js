@@ -3,10 +3,7 @@ import {MyLogin} from "./classLogin.js";
 import {getCards} from "../api/getCards.js";
 //import {header, headerButton } from "../constanta.js";
 import {changeButton} from "../functions/changeButton.js";
-//import {loginFormRemove} from '../functions/loginFormRemove.js'
-import {headerButton} from "../constanta.js";
 //import {Filter} from "./classFilter.js";
-
 //import {DrawCards} from "./classDrawCards.js"
 
 export class Authorization {
@@ -29,19 +26,17 @@ export class Authorization {
             const password = document.querySelector(".password_form_item").value;
             const authorisationResult = new MyLogin(email, password).request();
             authorisationResult.then((token) => {
-            if(token === "incorrect email or password" || email ==="" || password ===""){
-                return
+                    if( token === "incorrect email or password" || email ==="" || password ===""){
+                        return
 
-            }else {
-                localStorage.setItem('token', token);
-                getCards()
-            }
+                    }else {
+                        localStorage.setItem('token', token);
+                        getCards()
+                        changeButton()
+                        this.container_login.remove();
+                    }
+
             })
-            changeButton()
-            const loginFormRemove = () => {
-                this.container_login.remove();
-            }
-            loginFormRemove()
             // new Filter().apear();
             // new DrawCards().createElements();
         })
