@@ -27,7 +27,7 @@
 //         this.deleteButton.innerHTML = "Delete";
 //         this.container.append(this.deleteButton);
 //         this.deleteButton.addEventListener("click", () => {
-//             deleteCard(this.id, this.container)
+//         deleteCard(this.id, this.container)
 //
 //         })
 //     }}
