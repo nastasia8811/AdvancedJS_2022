@@ -29,8 +29,8 @@ export class Authorization {
             const password = document.querySelector(".password_form_item").value;
             const authorisationResult = new MyLogin(email, password).request();
             authorisationResult.then((token) => {
-            if(token === "incorrect email or password" || email ==="" || password ===""){
-                return
+                    if( token === "incorrect email or password" || email ==="" || password ===""){
+                        return
 
             }else {
                 localStorage.setItem('token', token);
