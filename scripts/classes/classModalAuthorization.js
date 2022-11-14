@@ -2,7 +2,7 @@
 import {MyLogin} from "./classLogin.js";
 import {getCards} from "../api/getCards.js";
 //import {header, headerButton } from "../constanta.js";
-import {changeButton} from "../functions/changeButton.js";
+import {changeButtonFunction} from "../functions/changeButton.js";
 //import {loginFormRemove} from '../functions/loginFormRemove.js'
 //import {headerButton} from "../constanta.js";
 //import {Filter} from "./classFilter.js";
@@ -35,7 +35,7 @@ export class Authorization {
             }else {
                 localStorage.setItem('token', token);
                 getCards()
-                changeButton()
+                changeButtonFunction()
                 this.container_login.remove();
             }
             })
