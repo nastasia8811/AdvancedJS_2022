@@ -42,16 +42,11 @@
 
 //import {getCards} from "../api/getCards";
 import {createCards} from "../api/createCard.js";
+import {MyLogin} from "./classLogin";
 
 
 export class Modal {
-    constructor(doctor, data, reason, priority, clientName, id) {
-        this.doctor = doctor;
-        this.data = data;
-        this.reason = reason;
-        this.priority = priority;
-        this.clientName = clientName;
-        this.id = id;
+    constructor() {
         this.containerModal = document.createElement('div');
         this.addVisitButton = document.createElement('button');
     }
@@ -68,16 +63,14 @@ export class Modal {
         document.body.append(this.containerModal);
         this.containerModal.append(this.addVisitButton);
         this.addVisitButton.innerHTML = 'ADD VISIT';
-////////////
         this.addVisitButton.addEventListener('click', () => {
             const inputDoctor = document.querySelector(".modal_window_doctor").value;
             const inputReason = document.querySelector(".modal_window_reason").value;
             const inputPriority = document.querySelector(".modal_window_priority").value;
             const inputName = document.querySelector(".modal_window_name").value;
             const inputData = document.querySelector(".modal_window_data").value;
-            if (inputDoctor && inputReason && inputPriority && inputName && inputData) {
-                createCards(inputName, inputDoctor, inputPriority, inputReason, inputData)
-            }
+
+            const newCard = new MyLogin(email, password).request();
             //const authorisationResult = new MyLogin(email, password).request();
             // authorisationResult.then((token) => {
             //     if (token === "incorrect email or password" || email === "" || password === "") {
