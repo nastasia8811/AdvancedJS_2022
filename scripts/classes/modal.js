@@ -1,15 +1,8 @@
-//import {getCards} from "../api/getCards";
-//import {createCards} from "../api/createCard.js";
-
+import {CreateCardServer} from "./classCreateCardServer.js";
+import Visit from "./visit.js";
 
 export class Modal {
     constructor() {
-        // this.doctor = doctor;
-        // this.data = data;
-        // this.reason = reason;
-        // this.priority = priority;
-        // this.clientName = clientName;
-        // this.id = id;
         this.containerModal = document.createElement('div');
         this.addVisitButton = document.createElement('button');
     }
@@ -21,25 +14,26 @@ export class Modal {
         <input class="modal_window_priority" placeholder="Priority">
         <input class="modal_window_name" placeholder="Name">
         <input class="modal_window_data" placeholder="Data">
+        <input class="modal_window_description" placeholder="Description">
     </form>`);
         this.containerModal.className = `modalWindow`;
         document.body.append(this.containerModal);
         this.containerModal.append(this.addVisitButton);
         this.addVisitButton.innerHTML = 'ADD VISIT';
-
         this.addVisitButton.addEventListener('click', () => {
-            const inputDoctor = document.querySelector(".modal_window_doctor").value;
-            const inputReason = document.querySelector(".modal_window_reason").value;
-            const inputPriority = document.querySelector(".modal_window_priority").value;
             const inputName = document.querySelector(".modal_window_name").value;
+            const inputDoctor = document.querySelector(".modal_window_doctor").value;
+            const inputPurpose = document.querySelector(".modal_window_reason").value;
+            const inputUrgency = document.querySelector(".modal_window_priority").value;
             const inputData = document.querySelector(".modal_window_data").value;
-            //пізніше сюди добавлю унікальні інпути для кожного лікаря.
-            //при натисканні на кнопку значення value нам потрібно передати в функцію createCard або в клас Visit
-
-
-            // твій пароль повинен також працювати, тому що ментор буде свої паролі вводити, а не наші
-
+            const inputDescription = document.querySelector(".modal_window_description").value;
+            new CreateCardServer(inputName, inputDoctor, inputPurpose, inputUrgency, inputData, inputDescription).requestCreateCard()
+            new Visit(inputName, inputDoctor, inputPurpose, inputUrgency ,inputData, inputDescription).createElements()
 
         })
+
+
     }
+
 }
+
