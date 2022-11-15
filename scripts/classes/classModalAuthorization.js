@@ -1,13 +1,7 @@
 //Мельник
 import {MyLogin} from "./classLogin.js";
 import {getCards} from "../api/getCards.js";
-//import {header, headerButton } from "../constanta.js";
 import {changeButtonFunction} from "../functions/changeButton.js";
-//import {loginFormRemove} from '../functions/loginFormRemove.js'
-//import {headerButton} from "../constanta.js";
-//import {Filter} from "./classFilter.js";
-
-//import {DrawCards} from "./classDrawCards.js"
 
 export class Authorization {
     constructor() {
