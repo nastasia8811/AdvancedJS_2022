@@ -25,10 +25,10 @@ export class Modal {
             const inputDoctor = document.querySelector(".modal_window_doctor").value;
             const inputPurpose = document.querySelector(".modal_window_reason").value;
             const inputUrgency = document.querySelector(".modal_window_priority").value;
-            const inputData = document.querySelector(".modal_window_data").value;
+            //const inputData = document.querySelector(".modal_window_data").value;
             const inputDescription = document.querySelector(".modal_window_description").value;
-            new CreateCardServer(inputName, inputDoctor, inputPurpose, inputUrgency, inputData, inputDescription).requestCreateCard()
-            new Visit(inputName, inputDoctor, inputPurpose, inputUrgency, inputData, inputDescription).createElements()
+            new CreateCardServer(inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription).requestCreateCard()
+            new Visit(inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription).createElements()
 
         //
         //     if (inputDoctor === "Cardiologist") {
