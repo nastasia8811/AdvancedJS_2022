@@ -6,8 +6,8 @@ export class CreateCardServer {
         this.purpose = purpose;
         this.data = data;
         this.urgency = urgency;
-        this.id = id;
         this.description = description;
+        this.id = id;
     }
 
     requestCreateCard(){
