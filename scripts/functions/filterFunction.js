@@ -1,11 +1,11 @@
 //Мельник
-export function filter(val,list){
-    console.time('test')
-    return list.filter(i=>(~i.indexOf(val)))
+export function filter(val,filterDoctor){
+    //console.time('test')
+    return filterDoctor.filter(i=>(~i.indexOf(val)))
 }
-export function renderList(_list=[],el=document.body){
+export function renderList(_filterDoctor=[],el=document.body){
     el.innerHTML='';
-    _list.forEach(i=>{
+    _filterDoctor.forEach(i=>{
         let new_el = document.createElement('li')
         new_el.innerHTML=i
         el.appendChild(new_el)
