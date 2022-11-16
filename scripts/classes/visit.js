@@ -29,7 +29,7 @@ class Visit {
     `<p>Visit purpose: ${this.purpose};</p>
     <p>Description: ${this.description};</p>`
     );
-    this.containerDoctorsInfo.className("card")
+    this.containerDoctorsInfo.className = "card";
     this.containerDoctorsInfo.prepend(this.containerCard);
   }
 
