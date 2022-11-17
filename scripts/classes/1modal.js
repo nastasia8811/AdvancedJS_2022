@@ -1,5 +1,8 @@
+import {selectDoctor} from "../functions/selectDctor.js";
 
 
+
+//import {inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription, inputPressure, inputMass, inputIllness, inputAge} from '../constanta.js'
 export class Modal {
     constructor() {
         this.containerModal = document.createElement('div');
@@ -14,33 +17,32 @@ export class Modal {
         this.containerModal.append(this.addVisitButton);
         this.addVisitButton.classList.add('addVisitButton')
         this.addVisitButton.innerHTML = 'ADD VISIT';
-      //   this.selectDoctor.insertAdjacentHTML('beforeend', ` <span class="choose">Choose Doctor</span>
-      // <div class="dropdown">
-      //   <div class="select">
-      //     <span>Select Doctor</span>
-      //     <i class="fa fa-chevron-left"></i>
-      //   </div>
-      //   <input type="hidden" name="gender">
-      //   <ul class="dropdown-menu">
-      //     <li id="cardiologist">Cardiologist</li>
-      //     <li id="dentist">Dentist</li>
-      //     <li id="therapist">Therapist</li>
-      //   </ul>`)
+         this.selectDoctor.insertAdjacentHTML('beforeend', `<div class="dropdown">
+  <button class="dropbtn">Выпадающий</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a class ='selectCardiologist' href="#">Cardiologist</a>
+    <a class ='selectDentist' href="#">Dentist</a>
+    <a class ='selectTherapist' href="#">Therapist</a>
+  </div>
+</div>`)
+
+        const dropbtn = document.querySelector('.dropbtn')
+        dropbtn.addEventListener('click',(event) => {
+            document.getElementById("myDropdown").classList.toggle("show");
+
+            if (!event.target.matches('.dropbtn')) {
+                const dropdowns = document.querySelector(".dropdown-content");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    const openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        })
+        selectDoctor()
 
 
-        this.selectDoctor.insertAdjacentHTML('beforeend', `  <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Кнопка выпадающего списка
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-        </div>`);
-    }
+}}
 
-
-}
-
+// ${this.name}`, `${this.doctor}`,  `${this.urgency}`, `${this.description}`, `${this.pressure}
