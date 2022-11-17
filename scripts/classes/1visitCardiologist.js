@@ -1,6 +1,6 @@
 import {Visit} from "./1visit.js";
 //import {CreateCardServer} from "./classCreateCardServer";
-import {Cardiologist} from "./1visitCardiologist.js";
+
 import {CreateCardServerCardiologist} from "./1createCardServerCardiologist.js";
 //import {inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription, inputPressure, inputMass, inputIllness, inputAge} from '../constanta.js'
 export class Cardiologist extends Visit {
@@ -39,24 +39,22 @@ export class Cardiologist extends Visit {
             const inputIllness = document.querySelector(".modal_window_illness").value;
             const inputAge = document.querySelector(".modal_window_age").value;
 
-            new CreateCardServerCardiologist(inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription, inputPressure, inputMass, inputIllness, inputAge).requestCreateCard()
-            new Cardiologist(inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription, inputPressure, inputMass, inputIllness, inputAge).createElements()
-        })
+            new CreateCardServerCardiologist (inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription, inputPressure, inputMass, inputIllness, inputAge).requestCreateCard()
 
+        })
     }
 
     createElements() {
         this.containerDoctorsInfo.insertAdjacentHTML("beforeend",
             `<p>Card</p>
-    <ul>
+       <ul>
         <li>${this.doctor}</li>
         <li>${this.name}</li>
         <li> Pressure : ${this.pressure}";</li>
         <li> Mass Index : ${this.mass};</li>
         <li> Cardiovascular History: ${this.illness};</li>
         <li> Age : ${this.age};</li>
-        </ul>
-    `);
+       </ul>`);
         this.containerDoctorsInfo.prepend(this.containerCard);
     }
 }

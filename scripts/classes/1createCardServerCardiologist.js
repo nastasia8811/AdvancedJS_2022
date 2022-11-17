@@ -23,5 +23,4 @@ export class CreateCardServerCardiologist extends CreateCardServer {
             }
         }).then(res => res.json())
             .then(data => console.log(data))
-
 }}

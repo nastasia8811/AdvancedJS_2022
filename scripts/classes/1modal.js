@@ -1,7 +1,5 @@
 import {selectDoctor} from "../functions/selectDctor.js";
 
-
-
 //import {inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription, inputPressure, inputMass, inputIllness, inputAge} from '../constanta.js'
 export class Modal {
     constructor() {
@@ -17,7 +15,7 @@ export class Modal {
         this.containerModal.append(this.addVisitButton);
         this.addVisitButton.classList.add('addVisitButton')
         this.addVisitButton.innerHTML = 'ADD VISIT';
-         this.selectDoctor.insertAdjacentHTML('beforeend', `<div class="dropdown">
+        this.selectDoctor.insertAdjacentHTML('beforeend', `<div class="dropdown">
   <button class="dropbtn">Выпадающий</button>
   <div id="myDropdown" class="dropdown-content">
     <a class ='selectCardiologist' href="#">Cardiologist</a>
@@ -41,8 +39,4 @@ export class Modal {
             }
         })
         selectDoctor()
-
-
 }}
-
-// ${this.name}`, `${this.doctor}`,  `${this.urgency}`, `${this.description}`, `${this.pressure}
