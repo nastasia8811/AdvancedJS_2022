@@ -14,7 +14,6 @@ headerButton.addEventListener("click", () => {
 
 changeButton.addEventListener('click', () => {
     new Modal().createElements()
-    new Modal().render()
 })
 
 new Filter().filterApear()
