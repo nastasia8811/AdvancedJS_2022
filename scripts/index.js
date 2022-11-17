@@ -6,7 +6,6 @@ import {filter, renderList} from "./functions/filterFunction.js";
 import {Filter} from "./classes/classFilter.js";
 //import {createCards} from "./api/createCard.js";
 
-
 const headerButton = document.body.querySelector('.header_button')
 headerButton.addEventListener("click", () => {
     new Authorization().createElements();
