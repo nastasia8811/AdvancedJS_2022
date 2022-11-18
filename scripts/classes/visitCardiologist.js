@@ -11,12 +11,12 @@ class Cardiologist extends Visit{
 
   createElements(){
     this.containerDoctorsInfo.insertAdjacentHTML("beforeend",
-    `<p> Pressure : ${this.pressure}";</p>
-    <p> Mass Index : ${this.mass};</p>
-    <p>Cardiovascular History: ${this.illness};</p>
-    <p><Age: ${this.age};</p>
+    `<li> Pressure : ${this.pressure}";</li>
+    <li> Mass Index : ${this.mass};</li>
+    <li>Cardiovascular History: ${this.illness};</li>
+    <li><Age: ${this.age};</li>
     `);
-    this.containerDoctorsInfo.prepend(this.containerCard);
+    this.cardInfo.prepend(this.containerInsertedInfo);
   }
 }
 
