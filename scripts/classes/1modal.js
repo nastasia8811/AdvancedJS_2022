@@ -1,9 +1,7 @@
 import {InputCardiologist} from "./classInputCardiologist.js";
-import {CreateCardServerCardiologist} from "./1createCardServerCardiologist.js";
 import {InputTherapist} from "./classInputTherapist.js";
-import {CreateCardServerTherapist} from './1createCardServerTherapist.js';
 import {InputDentist} from "./classInputDentist.js";
-import {CreateCardServerDentist} from './1createCardServerDentist.js';
+
 
 export class Modal {
     constructor() {
@@ -43,7 +41,7 @@ export class Modal {
             }
         })
 
-        const addVisitButton = document.querySelector('.addVisitButton')
+
         const selectCardiologist = document.querySelector('.selectCardiologist')
         const selectTherapist = document.querySelector('.selectTherapist')
         const selectDentist = document.querySelector('.selectDentist')
@@ -56,25 +54,20 @@ export class Modal {
                     elem.addEventListener('click', (event) => {
                         if (elem === selectCardiologist) {
                             new InputCardiologist().inputCreate()
-                            addVisitButton.addEventListener('click', () => {
-                                new CreateCardServerCardiologist().requestCreateCard()
-                            })
+
                         } else if (elem === selectTherapist) {
                             new InputTherapist().inputCreate()
-                            addVisitButton.addEventListener('click', () => {
-                                new CreateCardServerTherapist().requestCreateCard()
-                            })
                         } else {
                             new InputDentist().inputCreate()
 
-                            addVisitButton.addEventListener('click', () => {
-                                new CreateCardServerDentist().requestCreateCard()
-                            })
                         }
                     })
                 })
             })
         }
         selectDoctor()
+        // this.addVisitButton.addEventListener('click', ()=>{
+        //     this.containerModal.remove()
+        // })
     }
 }
