@@ -1,10 +1,9 @@
 import {Input} from "./classInput.js";
-
-
 import {CreateCardServerDentist} from "./1createCardServerDentist.js";
+import Dentist from "./visitDentist.js";
 
 export class InputDentist extends Input {
-    constructor( lastVisit, ...args) {
+    constructor(lastVisit, ...args) {
         super(...args);
         this.lastVisit = lastVisit;
         // this.containerDoctorsInfo = document.createElement("div");
@@ -29,9 +28,10 @@ export class InputDentist extends Input {
             const inputUrgency = document.querySelector(".modal_window_priority").value;
             const inputDescription = document.querySelector(".modal_window_description").value;
             const inputLastVisit = document.querySelector(".modal_window_lastVisit").value;
-
-            new CreateCardServerDentist (inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription, inputLastVisit).requestCreateCard()
-
+            new CreateCardServerDentist(inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription, inputLastVisit).requestCreateCard()
+            console.log("CreateCardServerDentist")
+            new Dentist(inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription, inputLastVisit).createElements()
+            console.log("Dentist")
         })
     }
 }
