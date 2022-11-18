@@ -8,8 +8,8 @@ class Dentist extends Visit{
 
   createElements(){
     super.createElements();
-    this.containerDoctorsInfo.insertAdjacentHTML("beforeend", `<p>Last visit: ${this.lastVisit};</p>`);
-    this.containerDoctorsInfo.prepend(this.containerCard);
+    this.containerDoctorsInfo.insertAdjacentHTML("beforeend", `<li>Last visit: ${this.lastVisit};</li>`);
+    this.cardInfo.prepend(this.containerInsertedInfo);
   }
 }
 
