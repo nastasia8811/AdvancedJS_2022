@@ -33,11 +33,12 @@ class Visit {
     `<p>Visit purpose: ${this.purpose};</p>
     <p>Description: ${this.description};</p>`
     );
-    this.containerDoctorsInfo.className("card")
+    this.containerDoctorsInfo.className = "card";
     this.containerDoctorsInfo.prepend(this.containerCardBody);
     this.containerInsertedInfo.className ="collapse";
     this.containerInsertedInfo.append(this.containerDoctorsInfo);
     this.containerAddInfo.append(this.containerInsertedInfo);
+
   }
 
   render(content) {
@@ -49,3 +50,7 @@ class Visit {
 
 export default Visit;
 
+//    <li>${this.purpose}</li>
+//     <li>${this.data}</li>
+//     <li>${this.urgency}</li>
+//     <li>${this.description}</li>
