@@ -25,7 +25,7 @@ class Visit {
     <li><p>Client : ${this.name}</p></li>
     </ul>`
     );
-    this.containerCard.className("card border-info mb-3");
+    this.containerCard.className = "card border-info mb-3";
     document.body.append(this.containerCard)
     this.containerCard.setAttribute("style", "max-width: 18rem; margin: 10px;");
     this.containerName.className = "card-header card-header__wrapper";

@@ -1,6 +1,6 @@
 import Visit from "./visit.js";
 
-class Theraphist extends Visit{
+class Therapist extends Visit{
   constructor(age, ...args){
     super(...args);
     this.age = age;
@@ -13,4 +13,4 @@ class Theraphist extends Visit{
   }
 }
 
-export default Theraphist;
+export default Therapist;
