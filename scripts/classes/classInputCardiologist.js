@@ -1,8 +1,8 @@
 import {Input} from "./classInput.js";
-//import {CreateCardServer} from "./classCreateCardServer";
-
 import {CreateCardServerCardiologist} from "./1createCardServerCardiologist.js";
-//import {inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription, inputPressure, inputMass, inputIllness, inputAge} from '../constanta.js'
+import Cardiologist from "./visitCardiologist.js";
+
+
 export class InputCardiologist extends Input {
     constructor(pressure, mass, illness, age, ...args) {
         super(...args);
@@ -10,8 +10,8 @@ export class InputCardiologist extends Input {
         this.mass = mass;
         this.illness = illness;
         this.age = age;
-        this.containerDoctorsInfo = document.createElement("div");
-        this.containerCard = document.createElement("div");
+        // this.containerDoctorsInfo = document.createElement("div");
+        // this.containerCard = document.createElement("div");
     }
 
     inputCreate() {
@@ -39,8 +39,10 @@ export class InputCardiologist extends Input {
             const inputIllness = document.querySelector(".modal_window_illness").value;
             const inputAge = document.querySelector(".modal_window_age").value;
 
-            new CreateCardServerCardiologist (inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription, inputPressure, inputMass, inputIllness, inputAge).requestCreateCard()
-
+            new CreateCardServerCardiologist(inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription, inputPressure, inputMass, inputIllness, inputAge).requestCreateCard()
+            console.log("CreateCardServerCardiologist")
+            new Cardiologist(inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription, inputPressure, inputMass, inputIllness, inputAge).createElements()
+            console.log("Cardiologist")
         })
     }
 }
