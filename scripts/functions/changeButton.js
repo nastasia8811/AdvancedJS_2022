@@ -7,3 +7,4 @@ export const changeButtonFunction = () => {
     changeButton.classList.add('active')
     headerButton.remove()
 }
+
