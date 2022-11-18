@@ -1,9 +1,9 @@
-import {Visit} from "./1visit.js";
+import {Input} from "./classInput.js";
 //import {CreateCardServer} from "./classCreateCardServer";
 
 import {CreateCardServerCardiologist} from "./1createCardServerCardiologist.js";
 //import {inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription, inputPressure, inputMass, inputIllness, inputAge} from '../constanta.js'
-export class Cardiologist extends Visit {
+export class InputCardiologist extends Input {
     constructor(pressure, mass, illness, age, ...args) {
         super(...args);
         this.pressure = pressure;
@@ -43,20 +43,4 @@ export class Cardiologist extends Visit {
 
         })
     }
-
-    createElements() {
-        this.containerDoctorsInfo.insertAdjacentHTML("beforeend",
-            `<p>Card</p>
-       <ul>
-        <li>${this.doctor}</li>
-        <li>${this.name}</li>
-        <li> Pressure : ${this.pressure}";</li>
-        <li> Mass Index : ${this.mass};</li>
-        <li> Cardiovascular History: ${this.illness};</li>
-        <li> Age : ${this.age};</li>
-       </ul>`);
-        this.containerDoctorsInfo.prepend(this.containerCard);
-    }
 }
-
-export default Cardiologist;
