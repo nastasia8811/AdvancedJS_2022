@@ -2,7 +2,6 @@ import {InputCardiologist} from "./classInputCardiologist.js";
 import {InputTherapist} from "./classInputTherapist.js";
 import {InputDentist} from "./classInputDentist.js";
 
-
 export class Modal {
     constructor() {
         this.containerModal = document.createElement('div');

@@ -2,6 +2,7 @@
 import {MyLogin} from "./classLogin.js";
 import {getCards} from "../api/getCards.js";
 import {changeButtonFunction} from "../functions/changeButton.js";
+import {Filter} from "./classFilter.js";
 
 export class Authorization {
     constructor() {
@@ -28,7 +29,10 @@ export class Authorization {
 
             }else {
                 localStorage.setItem('token', token);
-                getCards()
+
+                        getCards().then(data => {
+                            new Filter(data).filterApear()
+                })
                 changeButtonFunction()
                 this.container_login.remove();
             }

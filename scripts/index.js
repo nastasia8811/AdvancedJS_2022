@@ -15,5 +15,5 @@ changeButton.addEventListener('click', () => {
     new Modal().createElements()
 })
 
-new Filter().filterApear()
+//new Filter().filterApear()
 
