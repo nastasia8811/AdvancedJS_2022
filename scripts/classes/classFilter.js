@@ -1,9 +1,9 @@
 //Мельник
 import {bodyContainer} from "../constanta.js";
-import {filter, renderList} from "../functions/filterFunction.js";
-import {InputCardiologist} from "./classInputCardiologist";
-import {InputTherapist} from "./classInputTherapist";
-import {InputDentist} from "./classInputDentist";
+//import {filter, renderList} from "../functions/filterFunction.js";
+// import {InputCardiologist} from "./classInputCardiologist.js";
+// import {InputTherapist} from "./classInputTherapist.js";
+// import {InputDentist} from "./classInputDentist.js";
 
 export class Filter {
     constructor(arr) {
@@ -33,11 +33,11 @@ export class Filter {
         dropbtnStatus.addEventListener('click', (event) => {
             document.getElementById("myDropdownStatus").classList.toggle("show");
             if (!event.target.matches('.dropbtnStatus')) {
-                const dropdownContent = document.querySelector(".dropdown-content-status");
-                for (let i = 0; i < dropdownContent.length; i++) {
-                    const openDropdown = dropdownContent[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
+                const dropdownContentStatus = document.querySelector(".dropdown-content-status");
+                for (let i = 0; i < dropdownContentStatus.length; i++) {
+                    const openDropdownStatus = dropdownContentStatus[i];
+                    if (openDropdownStatus.classList.contains('show')) {
+                        openDropdownStatus.classList.remove('show');
                     }
                 }
             }
@@ -54,13 +54,13 @@ export class Filter {
         let filterPriority = ['High', 'Normal', 'Low']
         const doctorInput = document.querySelector('.filter_doctor')
         //const statusInput = document.querySelector('.filter_doctor')
-        const resultsFilterDoctor = document.getElementById('results_filter_doctor')
-        const resultsFilterStatus = document.getElementById('results_filter_status')
-        const resultsFilterPriority = document.getElementById('results_filter_priority')
+        // const resultsFilterDoctor = document.getElementById('results_filter_doctor')
+        // const resultsFilterStatus = document.getElementById('results_filter_status')
+        // const resultsFilterPriority = document.getElementById('results_filter_priority')
 
-        renderList(filterDoctor, resultsFilterDoctor)
-        renderList(filterStatus, resultsFilterStatus)
-        renderList(filterPriority, resultsFilterPriority)
+        // renderList(filterDoctor, resultsFilterDoctor)
+        // renderList(filterStatus, resultsFilterStatus)
+        // renderList(filterPriority, resultsFilterPriority)
         //-----------------------------------------------------------------
         document.querySelector('.filter_container').addEventListener('input', (event) => {
 
@@ -70,14 +70,23 @@ export class Filter {
                     return elem.doctor.includes(event.target.value)
 
                 }))
-            } else if (event.target === dropbtnStatus){
+            }
+            else if (event.target === dropbtnStatus){
                 const arrStatus = [selectDone, selectOpen]
             document.getElementById("myDropdownStatus").addEventListener('click', (event) => {
                 arrStatus.forEach((elem) => {
                     elem.addEventListener('click', (event) => {
                         if (elem === selectDone) {
-
-                        } else{
+                            let today = new Date()
+                            let dd = elem.date.slice(0, 2);
+                            let mm = elem.date.slice(3, 5);
+                            let yyyy = elem.date.slice(6);
+                            let date = today.getFullYear() - yyyy;
+                            if (mm > today.getMonth() || (mm === today.getMonth() && dd > today.getDay())) {
+                             result.filter(elem => {
+                                 return elem.date.includes(event.target.value)
+                            }
+                        } else {
 
                         }
 
@@ -86,13 +95,11 @@ export class Filter {
                 })
             }
 
-            // if(){}
-            // if(){}
         })
         //-----------------------------------------------------------------
-        document.getElementById('search_doctor').addEventListener('input', e => renderList(filter(e.target.value, filterDoctor), resultsFilterDoctor))
-        document.getElementById('search_status').addEventListener('input', e => renderList(filter(e.target.value, filterStatus), resultsFilterStatus))
-        document.getElementById('search_priority').addEventListener('input', e => renderList(filter(e.target.value, filterPriority), resultsFilterPriority))
+        // document.getElementById('search_doctor').addEventListener('input', e => renderList(filter(e.target.value, filterDoctor), resultsFilterDoctor))
+        // document.getElementById('search_status').addEventListener('input', e => renderList(filter(e.target.value, filterStatus), resultsFilterStatus))
+        // document.getElementById('search_priority').addEventListener('input', e => renderList(filter(e.target.value, filterPriority), resultsFilterPriority))
 
 
     }
