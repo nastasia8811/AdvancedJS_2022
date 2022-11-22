@@ -39,6 +39,12 @@ export class Authorization {
             })
             // new Filter().apear();
             // new DrawCards().createElements();
+            //
+            //     (async () => {
+            //         const cardsArray = await getCards();
+            //
+            //         showCards(cardsArray);
+            //     })();
         })
 
     }

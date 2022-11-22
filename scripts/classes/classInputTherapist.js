@@ -2,6 +2,7 @@ import {Input} from "./classInput.js";
 import {CreateCardServerTherapist} from "./1createCardServerTherapist.js";
 import Therapist from "./visitTherapist.js";
 
+
 export class InputTherapist extends Input {
     constructor(age, ...args) {
         super(...args);
@@ -30,9 +31,9 @@ export class InputTherapist extends Input {
             const inputAge = document.querySelector(".modal_window_age").value;
 
             new CreateCardServerTherapist(inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription, inputAge).requestCreateCard()
-            console.log("CreateCardServerTherapist")
-            new Therapist(inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription, inputAge).createElements()
-            console.log("Therapist")
+
+
+
         })
     }
 }

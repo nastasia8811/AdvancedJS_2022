@@ -8,20 +8,19 @@ export class Filter {
 
     filterApear() {
         bodyContainer.insertAdjacentHTML('beforeend', `<div class="filter_container">
-        <input class="filter_doctor" type="text" id="search_doctor" placeholder="Введіть назву лікаря (Cardiologist, Dentist, Therapist)">
-    <ul id="results_filter_doctor">
-    </ul>
-
-    <select class="visit_status">
+        <select class="visit_status">
     <option value="All">All</option>
     <option value="Done">Done</option>
     <option value="Open">Open</option>
-    </select>
-                        
+        </select>
+        <input class="filter_doctor" type="text" id="search_doctor" placeholder="Введіть назву лікаря (Cardiologist, Dentist, Therapist)">
+    <ul id="results_filter_doctor">
+    </ul>               
         <input class="filter_priority" type="text" id="search_priority" placeholder="Введіть терміновість візиту (High, Normal, Low)">
     <ul id="results_filter_priority">
     </ul>
     </div>`);
+
 
 
         const doctorInput = document.querySelector('.filter_doctor')
@@ -48,21 +47,16 @@ export class Filter {
                 })
                 console.log(result)
             }
-if (urgencyStatus.value !== ""){
-    result = result.filter(elem => {
-        return elem.urgency.includes(urgencyStatus.value)
-    })
-}
-
-            //     })
-            // })
-            // } else {
-            // console.log(result.filter(elem => {
-            //     return elem.urgency.includes(event.target.value)
-            //     }))
-            // }
+            if (urgencyStatus.value !== "") {
+                result = result.filter(elem => {
+                    return elem.urgency.includes(urgencyStatus.value)
+                })
+            }
 
 
         })
+
+
+
     }
 }
