@@ -19,6 +19,7 @@ export class Authorization {
         document.body.append(this.container_login);
         this.loginButton.innerHTML = 'LOGIN';
         this.container_login.append(this.loginButton);
+        this.loginButton.className = `loginButton`;
         this.loginButton.addEventListener('click', () => {
             const email = document.querySelector(".email_form_item").value;
             const password = document.querySelector(".password_form_item").value;

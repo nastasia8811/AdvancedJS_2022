@@ -1,10 +1,63 @@
-input {
-    width: 25%;
+body {
+
+    margin: 0 auto;
+    padding: 10px;
 }
+.header{
+    display: flex;
+    justify-content: space-between
+}
+.header_button{
+    border-radius: 3px;
+    position: relative;
+}
+.login {
+    padding: 20px;
+    min-width: 300px;
+    right: 55px;
+    top: auto;
+    position: absolute;
+    border: 1px solid #474747;
+    border-radius: 3px;
+}
+
+.form {
+    margin: 0 auto;
+    display:flex;
+    flex-direction: column;
+}
+
+.email_form_item{
+    margin-bottom: 20px;
+}
+
+.loginButton{
+    border-radius: 3px;
+    margin-top: 20px;
+    background-color: lightgreen;
+}
+
 .filter_container {
     display: flex;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center
 }
+
+.visit_status {
+    min-width: 100px;
+    margin-right: 20px;
+}
+
+.filter_doctor{
+    margin-right: 20px;
+    min-width: 300px;
+}
+
+.filter_priority {
+    min-width: 300px;
+}
+
+
 .display_none {
     display: none;
 }
@@ -23,48 +76,5 @@ input {
 }
 
 /*Styling Selectbox______________________________________________*/
-/* Кнопка выпадающего списка */
-.dropbtn {
-    background-color: #3498DB;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
 
-/* Кнопка выпадающего меню при наведении и фокусировке */
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
-}
-
-/* Контейнер <div> - необходим для размещения выпадающего содержимого */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-/* Выпадающее содержимое (скрыто по умолчанию) */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-/* Ссылки внутри выпадающего списка */
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-/* Изменение цвета выпадающих ссылок при наведении курсора */
-.dropdown-content a:hover {background-color: #ddd}
-
-/* Показать выпадающее меню (используйте JS, чтобы добавить этот класс .dropdown-content содержимого, когда пользователь нажимает на кнопку выпадающего списка) */
-.show {display:block;}
 
