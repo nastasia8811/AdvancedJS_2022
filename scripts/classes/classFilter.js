@@ -14,10 +14,10 @@ export class Filter {
     <option value="Done">Done</option>
     <option value="Open">Open</option>
         </select>
-        <input class="filter_doctor" type="text" id="search_doctor" placeholder="Cardiologist, Dentist, Therapist">
+        <input class="filter_doctor" type="text" id="search_doctor" placeholder="Кардиолог, Дантист, Терапевт">
     <ul id="results_filter_doctor">
     </ul>               
-        <input class="filter_priority" type="text" id="search_priority" placeholder="High, Normal, Low">
+        <input class="filter_priority" type="text" id="search_priority" placeholder="Неотложная, Средняя, Низкая">
     <ul id="results_filter_priority">
     </ul>
     </div>`);
@@ -32,7 +32,7 @@ export class Filter {
 
             if (doctorInput.value !== "") {
                 result = result.filter(elem => {
-                    return elem.doctor.includes(doctorInput.value.toLowerCase())
+                    return elem.doctor.includes(doctorInput.value)
                 })
             }
 
@@ -48,7 +48,7 @@ export class Filter {
                     }
                 })
             }
-            const urgencyStatusArr = ["Неотложная", "Normal", "Low"]
+            const urgencyStatusArr = ["Неотложная", "Средняя", "Низкая"]
             if (urgencyStatusArr.includes(urgencyStatus.value.toLowerCase()) ) {
                 result = result.filter(elem =>
                     urgencyStatus.value=== elem.urgency
