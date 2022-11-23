@@ -1,4 +1,3 @@
-//Мельник
 
 import {headerButton, changeButton} from "../constanta.js";
 
