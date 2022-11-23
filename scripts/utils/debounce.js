@@ -1,6 +1,6 @@
 
 
-const debounce = (func, timeout) => {
+export const debounce = (func, timeout) => {
     let timeoutId; // Переменная для ID таймера
 
     return function() {

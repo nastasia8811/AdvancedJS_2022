@@ -2,15 +2,13 @@
 import {CreateCardServer} from "./1classCreateCardServer.js"
 
 export class CreateCardServerTherapist extends CreateCardServer {
-    constructor( pressure, mass, illness, age, ...args) {
+    constructor(age, ...args) {
         super(...args);
-        this.pressure = pressure;
-        this.mass = mass;
-        this.illness = illness;
         this.age = age;
     }
 
     requestCreateCard(){
+        console.log(this.urgency)
         return fetch('https://ajax.test-danit.com/api/v2/cards', {
             method: 'POST',
             body: JSON.stringify({name: `${this.name}`, doctor:`${this.doctor}`, urgency: `${this.urgency}`,

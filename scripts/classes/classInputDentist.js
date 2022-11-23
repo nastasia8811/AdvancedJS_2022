@@ -29,7 +29,7 @@ export class InputDentist extends Input {
             const inputUrgency = document.querySelector(".modal_window_priority").value;
             const inputDescription = document.querySelector(".modal_window_description").value;
             const inputLastVisit = document.querySelector(".modal_window_lastVisit").value;
-            new CreateCardServerDentist(inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription, inputLastVisit).requestCreateCard()
+            new CreateCardServerDentist(inputLastVisit, inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription).requestCreateCard()
 
 
         })

@@ -1,6 +1,7 @@
 //Мельник
 import {bodyContainer} from "../constanta.js";
 
+
 export class Filter {
     constructor(arr) {
         this.arr = arr;
@@ -29,6 +30,7 @@ export class Filter {
 
         document.querySelector('.filter_container').addEventListener('input', (event) => {
             let result = this.arr;
+            const urgencyStatusArr = ["неотложная"]
             if (doctorInput.value !== "") {
                 result = result.filter(elem => {
                     return elem.doctor.includes(doctorInput.value)
@@ -45,12 +47,13 @@ export class Filter {
                         return true
                     }
                 })
-                console.log(result)
+
             }
-            if (urgencyStatus.value !== "") {
-                result = result.filter(elem => {
-                    return elem.urgency.includes(urgencyStatus.value)
-                })
+            if (urgencyStatusArr.includes(urgencyStatus.value.toLowerCase()) ) {
+                console.log('result')
+                result = result.filter(elem =>
+                    urgencyStatus.value=== elem.urgency
+                )
             }
 
 
