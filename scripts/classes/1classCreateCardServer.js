@@ -1,4 +1,4 @@
-//Мельник
+
 export class CreateCardServer {
     constructor(name, doctor, urgency, purpose, description,date) {
         this.name = name;

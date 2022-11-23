@@ -1,4 +1,4 @@
-//Мельник
+
 import {CreateCardServer} from "./1classCreateCardServer.js"
 
 export class CreateCardServerCardiologist extends CreateCardServer {

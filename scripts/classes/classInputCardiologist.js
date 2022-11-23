@@ -1,6 +1,6 @@
 import {Input} from "./classInput.js";
 import {CreateCardServerCardiologist} from "./1createCardServerCardiologist.js";
-import Cardiologist from "./visitCardiologist.js";
+
 
 
 export class InputCardiologist extends Input {
@@ -10,8 +10,6 @@ export class InputCardiologist extends Input {
         this.mass = mass;
         this.illness = illness;
         this.age = age;
-        // this.containerDoctorsInfo = document.createElement("div");
-        // this.containerCard = document.createElement("div");
     }
 
     inputCreate() {
