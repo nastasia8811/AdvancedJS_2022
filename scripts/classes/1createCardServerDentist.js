@@ -1,13 +1,10 @@
-//Мельник
+
 import {CreateCardServer} from "./1classCreateCardServer.js"
 
 export class CreateCardServerDentist extends CreateCardServer {
-    constructor( pressure, mass, illness, age, ...args) {
+    constructor( lastVisit, ...args) {
         super(...args);
-        this.pressure = pressure;
-        this.mass = mass;
-        this.illness = illness;
-        this.age = age;
+        this.lastVisit= lastVisit
     }
 
     requestCreateCard(){
