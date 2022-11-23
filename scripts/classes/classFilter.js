@@ -14,15 +14,13 @@ export class Filter {
     <option value="Done">Done</option>
     <option value="Open">Open</option>
         </select>
-        <input class="filter_doctor" type="text" id="search_doctor" placeholder="Введіть назву лікаря (Cardiologist, Dentist, Therapist)">
+        <input class="filter_doctor" type="text" id="search_doctor" placeholder="Cardiologist, Dentist, Therapist">
     <ul id="results_filter_doctor">
     </ul>               
-        <input class="filter_priority" type="text" id="search_priority" placeholder="Введіть терміновість візиту (High, Normal, Low)">
+        <input class="filter_priority" type="text" id="search_priority" placeholder="High, Normal, Low">
     <ul id="results_filter_priority">
     </ul>
     </div>`);
-
-
 
         const doctorInput = document.querySelector('.filter_doctor')
         const visitStatus = document.querySelector('.visit_status')
@@ -30,10 +28,11 @@ export class Filter {
 
         document.querySelector('.filter_container').addEventListener('input', (event) => {
             let result = this.arr;
-            const urgencyStatusArr = ["неотложная"]
+            //const urgencyStatusArr = ["High", "Normal", "Low"]
+
             if (doctorInput.value !== "") {
                 result = result.filter(elem => {
-                    return elem.doctor.includes(doctorInput.value)
+                    return elem.doctor.includes(doctorInput.value.toLowerCase())
                 })
             }
 
@@ -42,24 +41,19 @@ export class Filter {
                     let currentDateMs = new Date(elem.date).getTime()
                     let todayDateMs = new Date().getTime()
                     if (currentDateMs > todayDateMs && visitStatus.value === 'Open') {
+                        console.log(visitStatus)
                         return true
                     } else if (todayDateMs > currentDateMs && visitStatus.value === 'Done') {
                         return true
                     }
                 })
-
             }
+            const urgencyStatusArr = ["Неотложная", "Normal", "Low"]
             if (urgencyStatusArr.includes(urgencyStatus.value.toLowerCase()) ) {
-                console.log('result')
                 result = result.filter(elem =>
                     urgencyStatus.value=== elem.urgency
                 )
             }
-
-
         })
-
-
-
     }
 }
