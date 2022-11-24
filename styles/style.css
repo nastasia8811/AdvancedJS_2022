@@ -74,16 +74,19 @@ body {
 }
 
 .modalWindow{
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.52);
     padding: 15px;
     background-color: #ccf4b1;
     margin: 0 auto;
     width: 50%;
     min-height: 300px;
-    border: 1px solid #474747;
+    border: 1px solid #ccf4b1;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
 }
 
 .formModal{
