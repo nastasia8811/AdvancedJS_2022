@@ -14,7 +14,7 @@ export class Modal {
         this.containerModal.className = `modalWindow`;
         document.body.append(this.containerModal);
         this.containerModal.append(this.selectDoctor);
-        this.containerModal.append(this.addVisitButton);
+
         this.addVisitButton.classList.add('addVisitButton')
         this.addVisitButton.innerHTML = 'ADD VISIT';
 
@@ -27,14 +27,12 @@ export class Modal {
     <a class ='selectTherapist' href="#">Therapist</a>
   </div>
 </div>`)
-
-        const dropbtn = document.querySelector('.dropbtn');
-        const dropdowns = document.querySelector(".dropdown-content");
+const showDocList = document.getElementById("myDropdown")
+        const dropbtn = document.querySelector('.dropbtn')
         dropbtn.addEventListener('click', (event) => {
-            dropdowns.classList.toggle("show");
-
+            showDocList.classList.toggle("show");
             if (!event.target.matches('.dropbtn')) {
-
+                const dropdowns = document.querySelector(".dropdown-content");
                 for (let i = 0; i < dropdowns.length; i++) {
                     const openDropdown = dropdowns[i];
                     if (openDropdown.classList.contains('show')) {
@@ -44,7 +42,6 @@ export class Modal {
             }
         })
 
-
         const selectCardiologist = document.querySelector('.selectCardiologist')
         const selectTherapist = document.querySelector('.selectTherapist')
         const selectDentist = document.querySelector('.selectDentist')
@@ -52,20 +49,25 @@ export class Modal {
         const selectDoctor = () => {
             const arrDoctors = [selectCardiologist, selectTherapist, selectDentist]
             //TODO при першому кліку інпут не з'являється
-            document.querySelector(".dropdown-content").addEventListener('click', (event) => {
+
                 arrDoctors.forEach((elem) => {
                     elem.addEventListener('click', (event) => {
-                        if (elem!== '', elem === selectCardiologist) {
+                        this.containerModal.append(this.addVisitButton);
+                        if (elem === selectCardiologist && event.target === selectCardiologist) {
                             new InputCardiologist().inputCreate()
+                            showDocList.classList.remove('show');
 
-                        } else if (elem === selectTherapist) {
+                        } else if (elem === selectTherapist && event.target === selectTherapist) {
                             new InputTherapist().inputCreate()
-                        } else {
-                            new InputDentist().inputCreate()
+                            showDocList.classList.remove('show');
 
+                        } else if (elem === selectDentist && event.target === selectDentist){
+                            new InputDentist().inputCreate()
+                            showDocList.classList.remove('show');
                         }
+
                     })
-                })
+
             })
         }
         selectDoctor()
