@@ -1,8 +1,6 @@
 import {Input} from "./classInput.js";
 import {CreateCardServerDentist} from "./1createCardServerDentist.js";
 
-
-
 export class InputDentist extends Input {
     constructor(lastVisit, ...args) {
         super(...args);
@@ -13,13 +11,13 @@ export class InputDentist extends Input {
         const modalWindow = document.querySelector(".modalWindow");
         const addVisitButton = document.querySelector(".addVisitButton");
         modalWindow.insertAdjacentHTML('beforeend', `<form class="formModal" action="#" method="POST">
-        <input class="modal_window_doctor" placeholder="Doctor">
+        <input class="modal_window_doctor" placeholder="Doctor" value="Dentist">
         <input class="modal_window_reason" placeholder="Reason">
         <input class="modal_window_priority" placeholder="Priority">
         <input class="modal_window_name" placeholder="Name">
         <input class="modal_window_description" placeholder="Description">
         <input id="date" type="date" class="modal_window_date" placeholder="Date">
-        <input class="modal_window_lastVisit" placeholder="lastVisit">
+        <input type="date" class="modal_window_lastVisit" placeholder="lastVisit">
     </form>`);
         addVisitButton.addEventListener('click', () => {
             const inputName = document.querySelector(".modal_window_name").value;
