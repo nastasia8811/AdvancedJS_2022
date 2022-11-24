@@ -83,8 +83,14 @@ body {
     flex-direction: column;
 }
 
-.addVisitButton{
+.formModal{
+    display: flex;
+    flex-direction: column;
+}
 
+.addVisitButton{
+margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 /*Styling Selectbox______________________________________________*/
