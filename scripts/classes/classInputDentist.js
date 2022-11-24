@@ -18,6 +18,7 @@ export class InputDentist extends Input {
         <input class="modal_window_priority" placeholder="Priority">
         <input class="modal_window_name" placeholder="Name">
         <input class="modal_window_description" placeholder="Description">
+        <input type="date" class="modal_window_date" placeholder="Date">
         <input class="modal_window_lastVisit" placeholder="lastVisit">
     </form>`);
         addVisitButton.addEventListener('click', () => {
@@ -27,7 +28,8 @@ export class InputDentist extends Input {
             const inputUrgency = document.querySelector(".modal_window_priority").value;
             const inputDescription = document.querySelector(".modal_window_description").value;
             const inputLastVisit = document.querySelector(".modal_window_lastVisit").value;
-            new CreateCardServerDentist(inputLastVisit, inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription).requestCreateCard()
+            const inputDate = document.querySelector(".modal_window_date").value;
+            new CreateCardServerDentist(inputLastVisit, inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription, inputDate).requestCreateCard()
 
 
         })

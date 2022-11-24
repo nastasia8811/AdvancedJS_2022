@@ -1,10 +1,11 @@
 export class Input {
-  constructor(name, doctor, purpose, urgency, description) {
+  constructor(name, doctor, purpose, urgency, description, date) {
     this.name = name;
     this.doctor = doctor;
     this.purpose = purpose;
     this.urgency = urgency;
     this.description = description;
+    this.date = date;
     this.containerDoctorsInfo = document.createElement("div");
     this.containerCard = document.createElement("div");
   }
@@ -18,6 +19,7 @@ export class Input {
         <input class="modal_window_urgency" placeholder="Urgency">
         <input class="modal_window_name" placeholder="Name">
         <input class="modal_window_description" placeholder="Description">
+        <input type="date" class="modal_window_date" placeholder="Date">
     </form>`);
 
   }
