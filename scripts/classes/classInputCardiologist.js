@@ -38,8 +38,8 @@ export class InputCardiologist extends Input {
             const inputMass = document.querySelector(".modal_window_mass").value;
             const inputIllness = document.querySelector(".modal_window_illness").value;
             const inputAge = document.querySelector(".modal_window_age").value;
-            const inputDate = document.querySelector(".modal_window_date");
-            new CreateCardServerCardiologist(inputPressure, inputMass, inputIllness, inputAge, inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription, inputDate).requestCreateCard()
+            const inputDate = document.querySelector(".modal_window_date").value;
+            new CreateCardServerCardiologist(inputPressure, inputMass, inputIllness, inputAge, inputName, inputDoctor, inputUrgency, inputPurpose, inputDescription, inputDate).requestCreateCard()
 
         })
     }
