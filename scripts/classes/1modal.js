@@ -24,9 +24,9 @@ export class Modal {
         this.selectDoctor.insertAdjacentHTML('beforeend', `<div class="dropdown">
   <button class="dropbtn btn btn-outline-success">Вибрати лікаря</button>
   <div id="myDropdown" class="dropdown-content">
-    <a class ='selectCardiologist' href="#">Кардиолог</a>
-    <a class ='selectDentist' href="#">Стоматолог</a>
-    <a class ='selectTherapist' href="#">Терапевт</a>
+    <a class ='selectCardiologist' href="#">Cardiologist</a>
+    <a class ='selectDentist' href="#">Dentist</a>
+    <a class ='selectTherapist' href="#">Therapist</a>
   </div>
 </div>`)
 const showDocList = document.getElementById("myDropdown")
