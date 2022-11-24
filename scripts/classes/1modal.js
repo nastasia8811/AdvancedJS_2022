@@ -15,12 +15,14 @@ export class Modal {
         document.body.append(this.containerModal);
         this.containerModal.append(this.selectDoctor);
 
-        this.addVisitButton.classList.add('addVisitButton')
+        this.addVisitButton.classList.add('addVisitButton');
+        this.addVisitButton.classList.add('btn');
+        this.addVisitButton.classList.add('btn-success');
         this.addVisitButton.innerHTML = 'ADD VISIT';
 
 
         this.selectDoctor.insertAdjacentHTML('beforeend', `<div class="dropdown">
-  <button class="dropbtn">Вибрати лікаря</button>
+  <button class="dropbtn btn btn-outline-success">Вибрати лікаря</button>
   <div id="myDropdown" class="dropdown-content">
     <a class ='selectCardiologist' href="#">Cardiologist</a>
     <a class ='selectDentist' href="#">Dentist</a>
@@ -71,9 +73,6 @@ const showDocList = document.getElementById("myDropdown")
             })
         }
         selectDoctor()
-        // this.addVisitButton.addEventListener('click', ()=>{
-        //     this.containerModal.remove()
-        // })
     }
 }
 
