@@ -31,9 +31,10 @@ export class InputTherapist extends Input {
             const inputAge = document.querySelector(".modal_window_age").value;
             const inputDate = document.querySelector(".modal_window_date").value;
             new CreateCardServerTherapist(inputAge, inputName, inputDoctor, inputUrgency, inputPurpose, inputDescription,inputDate).requestCreateCard()
-
-
-
+        })
+        addVisitButton.addEventListener('click', ()=> {
+            modalWindow.remove()
+            alert("Поздравляем, визит к Терапевту создан!")
         })
     }
 }
