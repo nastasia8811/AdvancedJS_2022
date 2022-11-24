@@ -6,8 +6,6 @@ export class Input {
     this.urgency = urgency;
     this.description = description;
     this.date = date;
-    this.containerDoctorsInfo = document.createElement("div");
-    this.containerCard = document.createElement("div");
   }
 
   inputCreate() {

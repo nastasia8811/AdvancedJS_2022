@@ -30,7 +30,7 @@ export class InputTherapist extends Input {
             const inputDescription = document.querySelector(".modal_window_description").value;
             const inputAge = document.querySelector(".modal_window_age").value;
             const inputDate = document.querySelector(".modal_window_date").value;
-            new CreateCardServerTherapist( inputAge, inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription,inputDate).requestCreateCard()
+            new CreateCardServerTherapist(inputAge, inputName, inputDoctor, inputUrgency, inputPurpose, inputDescription,inputDate).requestCreateCard()
 
 
 

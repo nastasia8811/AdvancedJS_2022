@@ -71,9 +71,9 @@ const showDocList = document.getElementById("myDropdown")
             })
         }
         selectDoctor()
-        this.addVisitButton.addEventListener('click', ()=>{
-            this.containerModal.remove()
-        })
+        // this.addVisitButton.addEventListener('click', ()=>{
+        //     this.containerModal.remove()
+        // })
     }
 }
 
