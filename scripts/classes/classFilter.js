@@ -41,7 +41,6 @@ export class Filter {
                     let currentDateMs = new Date(elem.date).getTime()
                     let todayDateMs = new Date().getTime()
                     if (currentDateMs > todayDateMs && visitStatus.value === 'Open') {
-                        console.log(visitStatus)
                         return true
                     } else if (todayDateMs > currentDateMs && visitStatus.value === 'Done') {
                         return true
