@@ -24,9 +24,9 @@ export class Modal {
         this.selectDoctor.insertAdjacentHTML('beforeend', `<div class="dropdown">
   <button class="dropbtn btn btn-outline-success">Вибрати лікаря</button>
   <div id="myDropdown" class="dropdown-content">
-    <a class ='selectCardiologist' href="#">Cardiologist</a>
-    <a class ='selectDentist' href="#">Dentist</a>
-    <a class ='selectTherapist' href="#">Therapist</a>
+    <a class ='selectCardiologist' href="#">Кардиолог</a>
+    <a class ='selectDentist' href="#">Стоматолог</a>
+    <a class ='selectTherapist' href="#">Терапевт</a>
   </div>
 </div>`)
 const showDocList = document.getElementById("myDropdown")
@@ -50,8 +50,6 @@ const showDocList = document.getElementById("myDropdown")
 
         const selectDoctor = () => {
             const arrDoctors = [selectCardiologist, selectTherapist, selectDentist]
-            //TODO при першому кліку інпут не з'являється
-
                 arrDoctors.forEach((elem) => {
                     elem.addEventListener('click', (event) => {
                         this.containerModal.append(this.addVisitButton);
