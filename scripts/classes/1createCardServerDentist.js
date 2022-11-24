@@ -11,7 +11,7 @@ export class CreateCardServerDentist extends CreateCardServer {
         return fetch('https://ajax.test-danit.com/api/v2/cards', {
             method: 'POST',
             body: JSON.stringify({name: `${this.name}`, doctor:`${this.doctor}`, urgency: `${this.urgency}`,
-                purpose: `${this.purpose}`, description:`${this.description}`, age:`${this.lastVisit}`
+                purpose: `${this.purpose}`, description:`${this.description}`,date:`${this.date}`, age:`${this.lastVisit}`
             }),
             headers: {
                 'content-type': 'application/json',

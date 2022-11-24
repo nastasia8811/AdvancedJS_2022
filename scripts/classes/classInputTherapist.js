@@ -18,6 +18,7 @@ export class InputTherapist extends Input {
         <input class="modal_window_priority" placeholder="Priority">
         <input class="modal_window_name" placeholder="Name">
         <input class="modal_window_description" placeholder="Description">
+        <input type="date" class="modal_window_date" placeholder="Date">
         <input class="modal_window_age" placeholder="Age">
     </form>`);
         addVisitButton.addEventListener('click', () => {
@@ -28,7 +29,8 @@ export class InputTherapist extends Input {
             const inputUrgency = document.querySelector(".modal_window_priority").value;
             const inputDescription = document.querySelector(".modal_window_description").value;
             const inputAge = document.querySelector(".modal_window_age").value;
-            new CreateCardServerTherapist( inputAge, inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription).requestCreateCard()
+            const inputDate = document.querySelector(".modal_window_date").value;
+            new CreateCardServerTherapist( inputAge, inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription,inputDate).requestCreateCard()
 
 
 
