@@ -13,6 +13,7 @@ export class InputCardiologist extends Input {
     }
 
      inputCreate() {
+
         const modalWindow = document.querySelector(".modalWindow");
         const addVisitButton = document.querySelector(".addVisitButton");
         modalWindow.insertAdjacentHTML('beforeend', `<form class="formModal" action="#" method="POST">
@@ -21,7 +22,7 @@ export class InputCardiologist extends Input {
         <input class="modal_window_priority" placeholder="Priority">
         <input class="modal_window_name" placeholder="Name">
         <input class="modal_window_description" placeholder="Description">
-        <input type="date" class="modal_window_date" placeholder="Date">
+        <input type="date" class = "modal_window_date" placeholder = "Date">
         <input class="modal_window_pressure" placeholder="Pressure">
         <input class="modal_window_mass" placeholder="Mass">
         <input class="modal_window_illness" placeholder="Illness">
@@ -38,10 +39,7 @@ export class InputCardiologist extends Input {
             const inputIllness = document.querySelector(".modal_window_illness").value;
             const inputAge = document.querySelector(".modal_window_age").value;
             const inputDate = document.querySelector(".modal_window_date").value;
-            new CreateCardServerCardiologist(inputPressure, inputMass, inputIllness, inputAge, inputName, inputDoctor, inputPurpose, inputUrgency, inputDescription, inputDate).requestCreateCard()
-
-
-
+            new CreateCardServerCardiologist(inputPressure, inputMass, inputIllness, inputAge, inputName, inputDoctor, inputUrgency, inputPurpose, inputDescription, inputDate).requestCreateCard()
 
         })
     }
