@@ -17,6 +17,8 @@ export class Modal {
         this.containerModal.append(this.addVisitButton);
         this.addVisitButton.classList.add('addVisitButton')
         this.addVisitButton.innerHTML = 'ADD VISIT';
+
+
         this.selectDoctor.insertAdjacentHTML('beforeend', `<div class="dropdown">
   <button class="dropbtn">Вибрати лікаря</button>
   <div id="myDropdown" class="dropdown-content">
@@ -26,12 +28,13 @@ export class Modal {
   </div>
 </div>`)
 
-        const dropbtn = document.querySelector('.dropbtn')
+        const dropbtn = document.querySelector('.dropbtn');
+        const dropdowns = document.querySelector(".dropdown-content");
         dropbtn.addEventListener('click', (event) => {
-            document.getElementById("myDropdown").classList.toggle("show");
+            dropdowns.classList.toggle("show");
 
             if (!event.target.matches('.dropbtn')) {
-                const dropdowns = document.querySelector(".dropdown-content");
+
                 for (let i = 0; i < dropdowns.length; i++) {
                     const openDropdown = dropdowns[i];
                     if (openDropdown.classList.contains('show')) {
@@ -49,10 +52,10 @@ export class Modal {
         const selectDoctor = () => {
             const arrDoctors = [selectCardiologist, selectTherapist, selectDentist]
             //TODO при першому кліку інпут не з'являється
-            document.getElementById("myDropdown").addEventListener('click', (event) => {
+            document.querySelector(".dropdown-content").addEventListener('click', (event) => {
                 arrDoctors.forEach((elem) => {
                     elem.addEventListener('click', (event) => {
-                        if (elem === selectCardiologist) {
+                        if (elem!== '', elem === selectCardiologist) {
                             new InputCardiologist().inputCreate()
 
                         } else if (elem === selectTherapist) {
@@ -66,8 +69,10 @@ export class Modal {
             })
         }
         selectDoctor()
-        // this.addVisitButton.addEventListener('click', ()=>{
-        //     this.containerModal.remove()
-        // })
+        this.addVisitButton.addEventListener('click', ()=>{
+            this.containerModal.remove()
+        })
     }
 }
+
+
