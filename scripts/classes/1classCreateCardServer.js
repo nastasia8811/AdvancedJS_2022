@@ -1,12 +1,12 @@
 
 export class CreateCardServer {
-    constructor(name, doctor, urgency, purpose, description,date) {
+    constructor(name, doctor, urgency, purpose, description, date) {
         this.name = name;
         this.doctor = doctor;
         this.purpose = purpose;
         this.urgency = urgency;
         this.description = description;
-        this.date = date
+        this.date = date;
     }
 
     requestCreateCard(){
