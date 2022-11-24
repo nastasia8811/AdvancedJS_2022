@@ -8,7 +8,6 @@ export class CreateCardServerTherapist extends CreateCardServer {
     }
 
     requestCreateCard(){
-        console.log(this.urgency)
         return fetch('https://ajax.test-danit.com/api/v2/cards', {
             method: 'POST',
             body: JSON.stringify({name: `${this.name}`, doctor:`${this.doctor}`, urgency: `${this.urgency}`,
