@@ -74,12 +74,17 @@ body {
 }
 
 .modalWindow{
+    width: 50%;
     min-height: 300px;
     border: 1px solid #474747;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .addVisitButton{
-    margin-top: 200px;
+
 }
 
 /*Styling Selectbox______________________________________________*/
