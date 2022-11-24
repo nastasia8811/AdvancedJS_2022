@@ -3,6 +3,7 @@ import {CreateCardServerCardiologist} from "./1createCardServerCardiologist.js";
 
 
 
+
 export class InputCardiologist extends Input {
     constructor(pressure, mass, illness, age, ...args) {
         super(...args);
@@ -42,6 +43,10 @@ export class InputCardiologist extends Input {
             new CreateCardServerCardiologist(inputPressure, inputMass, inputIllness, inputAge, inputName, inputDoctor, inputUrgency, inputPurpose, inputDescription, inputDate).requestCreateCard()
 
         })
+         addVisitButton.addEventListener('click', ()=>{
+             modalWindow.remove()
+             alert("Поздравляем, визит к Кардиологу создан!")
+         })
     }
 }
 
