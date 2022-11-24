@@ -30,8 +30,10 @@ export class InputDentist extends Input {
             const inputLastVisit = document.querySelector(".modal_window_lastVisit").value;
             const inputDate = document.querySelector(".modal_window_date").value;
             new CreateCardServerDentist(inputLastVisit, inputName, inputDoctor, inputUrgency, inputPurpose, inputDescription, inputDate).requestCreateCard()
-
-
+        })
+        addVisitButton.addEventListener('click', ()=> {
+            modalWindow.remove()
+            alert("Поздравляем, визит к Дантисту создан!")
         })
     }
 }

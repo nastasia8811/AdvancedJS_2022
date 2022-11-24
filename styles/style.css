@@ -74,6 +74,9 @@ body {
 }
 
 .modalWindow{
+    padding: 15px;
+    background-color: #ccf4b1;
+    margin: 0 auto;
     width: 50%;
     min-height: 300px;
     border: 1px solid #474747;
@@ -88,21 +91,14 @@ body {
     flex-direction: column;
 }
 
-.addVisitButton{
-margin-bottom: 20px;
+.addVisitButton {
+    margin-bottom: 20px;
     margin-top: 20px;
 }
 
 /*Styling Selectbox______________________________________________*/
 /* Кнопка выпадающего списка */
-.dropbtn {
-    background-color: #3498DB;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
+
 
 /* Кнопка выпадающего меню при наведении и фокусировке */
 .dropbtn:hover, .dropbtn:focus {
