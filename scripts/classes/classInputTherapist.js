@@ -13,7 +13,7 @@ export class InputTherapist extends Input {
         const modalWindow = document.querySelector(".modalWindow");
         const addVisitButton = document.querySelector(".addVisitButton");
         modalWindow.insertAdjacentHTML('beforeend', `<form class="formModal" action="#" method="POST">
-        <input class="modal_window_doctor" placeholder="Doctor">
+        <input class="modal_window_doctor" placeholder="Doctor" value="Therapist">
         <input class="modal_window_reason" placeholder="Reason">
         <input class="modal_window_priority" placeholder="Priority">
         <input class="modal_window_name" placeholder="Name">
