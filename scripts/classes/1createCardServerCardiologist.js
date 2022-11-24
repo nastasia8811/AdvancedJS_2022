@@ -14,7 +14,7 @@ export class CreateCardServerCardiologist extends CreateCardServer {
         return fetch('https://ajax.test-danit.com/api/v2/cards', {
             method: 'POST',
             body: JSON.stringify({name: `${this.name}`, doctor:`${this.doctor}`, urgency: `${this.urgency}`,
-                purpose: `${this.purpose}`, description:`${this.description}`, pressure:`${this.pressure}`,
+                purpose: `${this.purpose}`, description:`${this.description}`, date:`${this.date}`, pressure:`${this.pressure}`,
                 mass:`${this.mass}`,illness:`${this.illness}`,age:`${this.age}`
             }),
             headers: {
