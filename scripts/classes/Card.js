@@ -12,12 +12,15 @@ export class Card {
     }
 
     createElements() {
-        this.container.insertAdjacentHTML('beforeend', `<h1 class="card_name">${this.name}</h1><h3 class="card_name">${this.doctor}</h3><p class="card_buttonShowMore">${this.buttonShowMore}</p>`);
+        this.container.insertAdjacentHTML('beforeend', `<h1 class="card_name">${this.name}</h1><h3 class="card_doctor">${this.doctor}</h3><p class="card_buttonShowMore">${this.buttonShowMore}</p>`);
         this.container.className = `card`;
         document.body.append(this.container);
         this.deleteButton.innerHTML = "Delete card";
         this.container.append(this.deleteButton);
         this.container.append(this.buttonShowMore);
+        this.buttonShowMore.addEventListener("click", () => {
+            this.container.insertAdjacentHTML('beforeend', `<h1 class="card_purpose">${this.purpose}</h1><h3 class="card_urgency">${this.urgency}</h3><p class="card_description">${this.description}</p>`);
+        })
         this.deleteButton.addEventListener("click", () => {
             deleteCard(this.id, this.container )
         })
@@ -49,7 +52,12 @@ export class Card {
 
 const deleteCard = (id, container) => {
     fetch(`https://ajax.test-danit.com/api/v2/cards/${id}`, {
-        method: "DELETE"
+        method: "DELETE",
+        body: JSON.stringify({name: `${this.name}`, doctor:`${this.doctor}`, urgency: `${this.urgency}`, purpose: `${this.purpose}`, description:`${this.description}`, id:`${this.id}`}),
+        headers: {
+            'content-type': 'application/json',
+            "authorization": `Bearer ${localStorage.getItem('token')}`
+        }
     })
         .then(({status}) => {
             if (status === 200) {
