@@ -1,11 +1,11 @@
-//Мельник
+
 import {MyLogin} from "./classLogin.js";
 import {getCards} from "../api/getCards.js";
 import {changeButtonFunction} from "../functions/changeButton.js";
 import {Filter} from "./classFilter.js";
-import {Card} from "./Card.js";
-import {cards} from "../index.js";
-//export let cards = []
+import {Card} from "../classes/Card.js";
+
+
 export class Authorization {
     constructor() {
         this.container_login = document.createElement("div");
@@ -34,10 +34,10 @@ export class Authorization {
                 localStorage.setItem('token', token);
 
                         getCards().then(data => {
-                            data.forEach((item)=>{cards.push(item);})
+                            data.forEach(({date, doctor,urgency})=>{})
+                            new Filter(data).filterApear()
 
-                            new Filter(cards).filterApear();
-                            cards.map(({name, doctor, urgency, purpose, description, id})=>{
+                            data.map(({name, doctor, urgency, purpose, description, id})=>{
                                 new Card(name, doctor, urgency, purpose, description, id).createElements();
                             })
 //cards.splice(2)

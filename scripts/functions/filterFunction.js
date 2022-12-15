@@ -1,18 +1,14 @@
-//Мельник
-// export function filter( val, result ) {
-//
-//     return this.arr.filter( i => ( ~i.indexOf(val) ) )
+// import {Card} from "../classes/Card.js";
+// const showCards = (cardsArray)=>{
+//     const container = document.querySelector('.card')
+//     container.innerHTML = '';
+//     cardsArray.forEach(({name, doctor, urgency, purpose, description, id}) => {
+//         // new Card(id,name,doctor).createElements(container)
+//         new Card(name, doctor, urgency, purpose, description, id).createElements(container);
+//     });
 // }
 //
-// export function renderList(_filterDoctor = this.arr, el = document.body){
-//     el.innerHTML = ''
-//     _filterDoctor.forEach( i => {
-//         let new_el = document.createElement('li')
-//         new_el.innerHTML = i
-//         el.appendChild(new_el)
-//     })
-//
-// }
+// export default showCards;
 
 
 

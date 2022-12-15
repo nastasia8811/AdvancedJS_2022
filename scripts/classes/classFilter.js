@@ -28,16 +28,16 @@ export class Filter {
 
         document.querySelector('.filter_container').addEventListener('input', (event) => {
             //event.preventDefault()
-            let cards = this.arr;
-            console.log(cards)
+            let result = this.arr;
+            console.log(result)
             if (doctorInput.value !== "") {
-                cards = cards.filter(elem => {
+                result = result.filter(elem => {
                     return elem.doctor.includes(doctorInput.value)
                 })
             }
 
             if (visitStatus.value !== 'All') {
-                cards = cards.filter(elem => {
+                result = result.filter(elem => {
                     let currentDateMs = new Date(elem.date).getTime()
                     let todayDateMs = new Date().getTime()
                     if (currentDateMs > todayDateMs && visitStatus.value === 'Open') {
@@ -49,8 +49,8 @@ export class Filter {
             }
             const urgencyStatusArr = ['High', 'Normal', 'Low']
             if (urgencyStatusArr.includes(urgencyStatus.value.toLowerCase()) ) {
-                cards = cards.filter(elem =>
-                    urgencyStatus.value=== elem.urgency
+                result = result.filter(elem =>{
+                    return urgencyStatus.value=== elem.urgency}
                 )
             }
         })
