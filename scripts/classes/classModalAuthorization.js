@@ -3,7 +3,9 @@ import {MyLogin} from "./classLogin.js";
 import {getCards} from "../api/getCards.js";
 import {changeButtonFunction} from "../functions/changeButton.js";
 import {Filter} from "./classFilter.js";
-
+import {Card} from "./Card.js";
+import {cards} from "../index.js";
+//export let cards = []
 export class Authorization {
     constructor() {
         this.container_login = document.createElement("div");
@@ -32,20 +34,18 @@ export class Authorization {
                 localStorage.setItem('token', token);
 
                         getCards().then(data => {
-                            new Filter(data).filterApear()
+                            data.forEach((item)=>{cards.push(item);})
+
+                            new Filter(cards).filterApear();
+                            cards.map(({name, doctor, urgency, purpose, description, id})=>{
+                                new Card(name, doctor, urgency, purpose, description, id).createElements();
+                            })
+//cards.splice(2)
                 })
                 changeButtonFunction()
                 this.container_login.remove();
             }
             })
-            // new Filter().apear();
-            // new DrawCards().createElements();
-            //
-            //     (async () => {
-            //         const cardsArray = await getCards();
-            //
-            //         showCards(cardsArray);
-            //     })();
         })
 
     }

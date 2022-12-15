@@ -67,7 +67,6 @@ const showDocList = document.getElementById("myDropdown")
                         }
 
                     })
-
             })
         }
         selectDoctor()
