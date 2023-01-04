@@ -36,7 +36,7 @@ export class ChangeCardServer {
             // this.illness = document.querySelector(".modal_window_illness").value;
             // this.age = document.querySelector(".modal_window_age").value;
             this.date = document.querySelector(".modal_window_date").value;
-            console.log(this.name);
+
          fetch(`https://ajax.test-danit.com/api/v2/cards/${this.id}`, {
             method: "PUT",
             body: JSON.stringify({
@@ -56,7 +56,7 @@ export class ChangeCardServer {
         })
             .then(({status}) => {
                 if (status === 200) {
-                  const containerID = document.querySelector("#138267");
+                  const containerID = document.getElementById(`#${this.id}`);
                   new Card(this.name, this.doctor, this.urgency, this.purpose, this.description, this.date, this.id).createElements(containerID);
                     containerID.remove();
                 }

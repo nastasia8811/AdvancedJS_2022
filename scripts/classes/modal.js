@@ -88,7 +88,6 @@ const showDocList = document.getElementById("myDropdown")
         this.changeButton.classList.add('btn');
         this.changeButton.classList.add('btn-success');
         this.changeButton.innerHTML = 'Change VISIT';
-        console.log(this.name)
         new ChangeCardServer(this.name, this.doctor, this.urgency, this.purpose, this.description, this.date, this.id).render();
 
     }

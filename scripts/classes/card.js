@@ -17,7 +17,7 @@ export class Card {
         this.container.id = id;
     }
 
-    createElements(parent=document.body) {
+    createElements(parent= document.body) {
         parent.after(this.container);
         this.container.insertAdjacentHTML('beforeend', `<h1 class="card_name">Patient name: ${this.name}</h1><h3 class="card_doctor">Selected doctor: ${this.doctor}</h3>`);
         this.container.className = `card`;
