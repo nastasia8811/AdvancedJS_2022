@@ -28,14 +28,16 @@ export class Filter {
 
         document.querySelector('.filter_container').addEventListener('input', (event) => {
             //event.preventDefault()
-            let result = this.arr;
-            console.log(result)
+            document.querySelectorAll(".card");
+
+            let result = [...document.querySelectorAll(".card")];
             if (doctorInput.value !== "") {
                 result = result.filter(elem => {
-                    return elem.doctor.includes(doctorInput.value)
+                    const doctorText = elem.querySelector(".card_doctor").textContent;
+                    return doctorText.includes(doctorInput.value);
                 })
             }
-
+            console.log(result)
             if (visitStatus.value !== 'All') {
                 result = result.filter(elem => {
                     let currentDateMs = new Date(elem.date).getTime()

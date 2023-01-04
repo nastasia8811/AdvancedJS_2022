@@ -56,9 +56,10 @@ export class ChangeCardServer {
         })
             .then(({status}) => {
                 if (status === 200) {
-                  const containerID = document.getElementById(`#${this.id}`);
+                  const containerID = document.getElementById(`${this.id}`);
                   new Card(this.name, this.doctor, this.urgency, this.purpose, this.description, this.date, this.id).createElements(containerID);
                     containerID.remove();
+                    modalWindow.remove();
                 }
 
             })
