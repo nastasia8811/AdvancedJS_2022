@@ -36,11 +36,13 @@ export class Authorization {
                         getCards().then(data => {
                             data.forEach(({date, doctor,urgency})=>{})
                             new Filter(data).filterApear()
+                            //{name, doctor, urgency, purpose, description,date, id}
+                            data.map((item)=>{
 
-                            data.map(({name, doctor, urgency, purpose, description, id})=>{
-                                new Card(name, doctor, urgency, purpose, description, id).createElements();
+                                const {name, doctor, urgency, purpose, description,date, id} = item;
+                                new Card(name, doctor, urgency, purpose, description,date, id).createElements();
                             })
-//cards.splice(2)
+
                 })
                 changeButtonFunction()
                 this.container_login.remove();

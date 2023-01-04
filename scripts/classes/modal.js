@@ -9,14 +9,14 @@ export class Modal {
         this.containerModal = document.createElement('div');
         this.selectDoctor = document.createElement('div');
         this.addVisitButton = document.createElement('button');
-this.changeButton = document.createElement('button');
+        this.changeButton = document.createElement('button');
         this.name = name;
         this.doctor = doctor;
         this.purpose = purpose;
         this.urgency = urgency;
         this.description = description;
         this.date = date;
-        this.id= id
+        this.id= id;
     }
 
     createElements() {
@@ -88,8 +88,8 @@ const showDocList = document.getElementById("myDropdown")
         this.changeButton.classList.add('btn');
         this.changeButton.classList.add('btn-success');
         this.changeButton.innerHTML = 'Change VISIT';
-
-        new ChangeCardServer(this.name, this.doctor, this.urgency, this.purpose, this.description, this.id).render();
+        console.log(this.name)
+        new ChangeCardServer(this.name, this.doctor, this.urgency, this.purpose, this.description, this.date, this.id).render();
 
     }
 }

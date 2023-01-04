@@ -1,10 +1,13 @@
+import {Card} from "../classes/card.js";
+
 export class ChangeCardServer {
-    constructor(name, doctor, urgency, purpose, description, id) {
+    constructor(name, doctor, urgency, purpose, description, date, id) {
         this.name = name;
         this.doctor = doctor;
         this.purpose = purpose;
         this.urgency = urgency;
         this.description = description;
+        this.date = date;
         this.id = id;
         this.container = document.createElement('div');
     }
@@ -17,14 +20,14 @@ export class ChangeCardServer {
         modalWindow.insertAdjacentHTML('beforeend', `<form class="formModal" action="#" method="PUT">
         <input class="modal_window_doctor" placeholder="Doctor" value=${this.doctor}>
         <input class="modal_window_purpose" placeholder="Purpose" value=${this.purpose}>
-        <input class="modal_window_urgency" placeholder="Urgency">
-        <input class="modal_window_name" placeholder="Name" ${this.name}>
+        <input class="modal_window_urgency" placeholder="Urgency" value=${this.urgency}>
+        <input class="modal_window_name" placeholder="Name" value=${this.name}>
         <input class="modal_window_description" placeholder="Description">
         <input type="date" class="modal_window_date" placeholder="Date">
     </form>`);
 
         changeCard.addEventListener('click', () => {
-             this.name = document.querySelector(".modal_window_doctor").value;
+             this.name = document.querySelector(".modal_window_name").value;
             this.purpose = document.querySelector(".modal_window_purpose").value;
             this.urgency = document.querySelector(".modal_window_urgency").value;
             this.description = document.querySelector(".modal_window_description").value;
@@ -33,7 +36,7 @@ export class ChangeCardServer {
             // this.illness = document.querySelector(".modal_window_illness").value;
             // this.age = document.querySelector(".modal_window_age").value;
             this.date = document.querySelector(".modal_window_date").value;
-
+            console.log(this.name);
          fetch(`https://ajax.test-danit.com/api/v2/cards/${this.id}`, {
             method: "PUT",
             body: JSON.stringify({
@@ -42,8 +45,10 @@ export class ChangeCardServer {
                 urgency: `${this.urgency}`,
                 purpose: `${this.purpose}`,
                 description: `${this.description}`,
+                date: `${this.date}`,
                 id: `${this.id}`,
             }),
+
             headers: {
                 'content-type': 'application/json',
                 "authorization": `Bearer ${localStorage.getItem('token')}`
@@ -51,7 +56,9 @@ export class ChangeCardServer {
         })
             .then(({status}) => {
                 if (status === 200) {
-                    this.container.remove()
+                  const containerID = document.querySelector("#138267");
+                  new Card(this.name, this.doctor, this.urgency, this.purpose, this.description, this.date, this.id).createElements(containerID);
+                    containerID.remove();
                 }
 
             })
