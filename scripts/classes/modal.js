@@ -1,21 +1,30 @@
-import {InputCardiologist} from "./classInputCardiologist.js";
-import {InputTherapist} from "./classInputTherapist.js";
-import {InputDentist} from "./classInputDentist.js";
+import {InputCardiologist} from "./inputCardiologist.js";
+import {InputTherapist} from "./inputTherapist.js";
+import {InputDentist} from "./inputDentist.js";
+import {ChangeCardServer} from "../api/changeCard.js";
 
 
 export class Modal {
-    constructor() {
+    constructor(name, doctor, purpose, urgency, description, date, id) {
         this.containerModal = document.createElement('div');
         this.selectDoctor = document.createElement('div');
         this.addVisitButton = document.createElement('button');
+this.changeButton = document.createElement('button');
+        this.name = name;
+        this.doctor = doctor;
+        this.purpose = purpose;
+        this.urgency = urgency;
+        this.description = description;
+        this.date = date;
+        this.id= id
     }
 
     createElements() {
         this.containerModal.className = `modalWindow`;
         document.body.append(this.containerModal);
         this.containerModal.append(this.selectDoctor);
-
         this.addVisitButton.classList.add('addVisitButton');
+
         this.addVisitButton.classList.add('btn');
         this.addVisitButton.classList.add('btn-success');
         this.addVisitButton.innerHTML = 'ADD VISIT';
@@ -70,6 +79,18 @@ const showDocList = document.getElementById("myDropdown")
             })
         }
         selectDoctor()
+    }
+    changeCard(){
+        this.containerModal.className = `modalWindow`;
+        document.body.append(this.containerModal);
+        this.changeButton.classList.add('changeCard');
+        this.containerModal.append(this.changeButton);
+        this.changeButton.classList.add('btn');
+        this.changeButton.classList.add('btn-success');
+        this.changeButton.innerHTML = 'Change VISIT';
+
+        new ChangeCardServer(this.name, this.doctor, this.urgency, this.purpose, this.description, this.id).render();
+
     }
 }
 

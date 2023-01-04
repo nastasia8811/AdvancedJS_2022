@@ -1,9 +1,9 @@
 
-import {MyLogin} from "./classLogin.js";
+import {MyLogin} from "./login.js";
 import {getCards} from "../api/getCards.js";
 import {changeButtonFunction} from "../functions/changeButton.js";
-import {Filter} from "./classFilter.js";
-import {Card} from "../classes/Card.js";
+import {Filter} from "./filter.js";
+import {Card} from "./card.js";
 
 
 export class Authorization {

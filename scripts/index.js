@@ -1,8 +1,8 @@
-import {Authorization} from "./classes/classModalAuthorization.js";
-import {Modal} from "./classes/1modal.js";
+import {Authorization} from "./classes/modalAuthorization.js";
+import {Modal} from "./classes/modal.js";
 import {changeButton} from "./constanta.js";
 //import searchCards from "./functions/ShowCards_Melnyk.js";
-//import {Card} from "./classes/Card.js";
+//import {Card} from "./classes/card.js";
 
 const headerButton = document.body.querySelector('.header_button')
 headerButton.addEventListener("click", () => {
