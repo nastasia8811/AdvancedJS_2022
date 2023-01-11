@@ -31,16 +31,19 @@ export class Filter {
             document.querySelectorAll(".card");
 
             let result = [...document.querySelectorAll(".card")];
+            result.forEach((element)=>{
+                element.style.display = "none";
+            })
             if (doctorInput.value !== "") {
                 result = result.filter(elem => {
                     const doctorText = elem.querySelector(".card_doctor").textContent;
                     return doctorText.includes(doctorInput.value);
                 })
             }
-            let resultStatus = this.arr;
             if (visitStatus.value !== 'All') {
-                resultStatus = resultStatus.filter(elem => {
-                    let currentDateMs = new Date(elem.date).getTime()
+                result = result.filter(elem => {
+                    const filterDate = elem.dataset.date
+                    let currentDateMs = new Date(filterDate).getTime()
                     let todayDateMs = new Date().getTime()
                     if (currentDateMs > todayDateMs && visitStatus.value === 'Open') {
                         return true
@@ -49,17 +52,23 @@ export class Filter {
                     }
                 })
             }
-            const urgencyStatusArr = ['High', 'Normal', 'Low']
+            console.log("filer 2", result)
+
+            const urgencyStatusArr = ['high', 'normal', 'low']
+
          if (urgencyStatusArr.includes(urgencyStatus.value.toLowerCase()) ) {
-             resultStatus = resultStatus.filter(elem =>{
-           return urgencyStatus.value=== elem.urgency}
+             result = result.filter(elem =>{
+                 const filterUrg = elem.dataset.urgency;
+           return urgencyStatus.value=== filterUrg}
 
             )
-             console.log(resultStatus)
 
+             console.log("filer 3", result)
               }
 
-
+            result.forEach((element)=>{
+                element.style.display = "block";
+            })
         })
     }
 }

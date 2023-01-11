@@ -15,6 +15,8 @@ export class Card {
         this.deleteButton = document.createElement("button");
         this.buttonShowMore = document.createElement("button");
         this.container.id = id;
+        this.container.dataset.urgency = urgency;
+        this.container.dataset.date = date;
     }
 
     createElements(parent= document.body) {
@@ -32,7 +34,7 @@ export class Card {
         })
 
         this.buttonShowMore.addEventListener("click", () => {
-            this.container.insertAdjacentHTML('beforeend', `<h1 class="card_purpose">Purpose: ${this.purpose}</h1><h3 class="card_urgency">Urgency: ${this.urgency}</h3><p class="card_description">Description: ${this.description}</p>`);
+            this.container.insertAdjacentHTML('beforeend', `<h1 class="card_purpose">Purpose: ${this.purpose}</h1><h3 class="card_urgency">Urgency: ${this.urgency}</h3><p class="card_description">Description: ${this.description}</p> <p class="date">Date: ${this.date}</p>`);
         })
         this.deleteButton.addEventListener("click", () => {
             deleteCard(this.id, this.container)
