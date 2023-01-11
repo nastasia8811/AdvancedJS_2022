@@ -37,9 +37,9 @@ export class Filter {
                     return doctorText.includes(doctorInput.value);
                 })
             }
-            console.log(result)
+            let resultStatus = this.arr;
             if (visitStatus.value !== 'All') {
-                result = result.filter(elem => {
+                resultStatus = resultStatus.filter(elem => {
                     let currentDateMs = new Date(elem.date).getTime()
                     let todayDateMs = new Date().getTime()
                     if (currentDateMs > todayDateMs && visitStatus.value === 'Open') {
@@ -50,11 +50,16 @@ export class Filter {
                 })
             }
             const urgencyStatusArr = ['High', 'Normal', 'Low']
-            if (urgencyStatusArr.includes(urgencyStatus.value.toLowerCase()) ) {
-                result = result.filter(elem =>{
-                    return urgencyStatus.value=== elem.urgency}
-                )
-            }
+         if (urgencyStatusArr.includes(urgencyStatus.value.toLowerCase()) ) {
+             resultStatus = resultStatus.filter(elem =>{
+           return urgencyStatus.value=== elem.urgency}
+
+            )
+             console.log(resultStatus)
+
+              }
+
+
         })
     }
 }
