@@ -1,8 +1,10 @@
-//Мельник
-import {MyLogin} from "./classLogin.js";
+
+import {MyLogin} from "./login.js";
 import {getCards} from "../api/getCards.js";
 import {changeButtonFunction} from "../functions/changeButton.js";
-import {Filter} from "./classFilter.js";
+import {Filter} from "./filter.js";
+import {Card} from "./card.js";
+
 
 export class Authorization {
     constructor() {
@@ -22,7 +24,10 @@ export class Authorization {
         this.loginButton.className = `loginButton  btn btn-outline-success`;
         this.loginButton.addEventListener('click', () => {
             const email = document.querySelector(".email_form_item").value;
-            const password = document.querySelector(".password_form_item").value;
+           const password = document.querySelector(".password_form_item").value;
+
+            // const email = "f@f.com"
+            // const password ="as"
             const authorisationResult = new MyLogin(email, password).request();
             authorisationResult.then((token) => {
                     if( token === "incorrect email or password" || email ==="" || password ===""){
@@ -32,20 +37,20 @@ export class Authorization {
                 localStorage.setItem('token', token);
 
                         getCards().then(data => {
+                            data.forEach(({date, doctor,urgency})=>{})
                             new Filter(data).filterApear()
+                            //{name, doctor, urgency, purpose, description,date, id}
+                            data.map((item)=>{
+
+                                const {name, doctor, urgency, purpose, description,date, id} = item;
+                                new Card(name, doctor, urgency, purpose, description,date, id).createElements();
+                            })
+
                 })
                 changeButtonFunction()
                 this.container_login.remove();
             }
             })
-            // new Filter().apear();
-            // new DrawCards().createElements();
-            //
-            //     (async () => {
-            //         const cardsArray = await getCards();
-            //
-            //         showCards(cardsArray);
-            //     })();
         })
 
     }

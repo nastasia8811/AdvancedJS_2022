@@ -1,5 +1,5 @@
-import {Input} from "./classInput.js";
-import {CreateCardServerCardiologist} from "./1createCardServerCardiologist.js";
+import {Input} from "./input.js";
+import {CardServerCardiologist} from "./cardServerCardiologist.js";
 
 
 
@@ -40,7 +40,7 @@ export class InputCardiologist extends Input {
             const inputIllness = document.querySelector(".modal_window_illness").value;
             const inputAge = document.querySelector(".modal_window_age").value;
             const inputDate = document.querySelector(".modal_window_date").value;
-            new CreateCardServerCardiologist(inputPressure, inputMass, inputIllness, inputAge, inputName, inputDoctor, inputUrgency, inputPurpose, inputDescription, inputDate).requestCreateCard()
+            new CardServerCardiologist(inputPressure, inputMass, inputIllness, inputAge, inputName, inputDoctor, inputUrgency, inputPurpose, inputDescription, inputDate).requestCreateCard()
 
         })
          addVisitButton.addEventListener('click', ()=>{

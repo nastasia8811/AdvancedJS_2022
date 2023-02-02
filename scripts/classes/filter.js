@@ -28,16 +28,22 @@ export class Filter {
 
         document.querySelector('.filter_container').addEventListener('input', (event) => {
             //event.preventDefault()
-            let result = this.arr;
+            document.querySelectorAll(".card");
+
+            let result = [...document.querySelectorAll(".card")];
+            result.forEach((element)=>{
+                element.style.display = "none";
+            })
             if (doctorInput.value !== "") {
                 result = result.filter(elem => {
-                    return elem.doctor.includes(doctorInput.value)
+                    const doctorText = elem.querySelector(".card_doctor").textContent;
+                    return doctorText.includes(doctorInput.value);
                 })
             }
-
             if (visitStatus.value !== 'All') {
                 result = result.filter(elem => {
-                    let currentDateMs = new Date(elem.date).getTime()
+                    const filterDate = elem.dataset.date
+                    let currentDateMs = new Date(filterDate).getTime()
                     let todayDateMs = new Date().getTime()
                     if (currentDateMs > todayDateMs && visitStatus.value === 'Open') {
                         return true
@@ -46,12 +52,23 @@ export class Filter {
                     }
                 })
             }
-            const urgencyStatusArr = ['High', 'Normal', 'Low']
-            if (urgencyStatusArr.includes(urgencyStatus.value.toLowerCase()) ) {
-                result = result.filter(elem =>
-                    urgencyStatus.value=== elem.urgency
-                )
-            }
+            console.log("filer 2", result)
+
+            const urgencyStatusArr = ['high', 'normal', 'low']
+
+         if (urgencyStatusArr.includes(urgencyStatus.value.toLowerCase()) ) {
+             result = result.filter(elem =>{
+                 const filterUrg = elem.dataset.urgency;
+           return urgencyStatus.value=== filterUrg}
+
+            )
+
+             console.log("filer 3", result)
+              }
+
+            result.forEach((element)=>{
+                element.style.display = "block";
+            })
         })
     }
 }

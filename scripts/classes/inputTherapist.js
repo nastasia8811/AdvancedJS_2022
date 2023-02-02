@@ -1,37 +1,40 @@
-import {Input} from "./classInput.js";
-import {CreateCardServerDentist} from "./1createCardServerDentist.js";
+import {Input} from "./input.js";
+import {CardServerTherapist} from "./cardServerTherapist.js";
 
-export class InputDentist extends Input {
-    constructor(lastVisit, ...args) {
+
+
+export class InputTherapist extends Input {
+    constructor(age, ...args) {
         super(...args);
-        this.lastVisit = lastVisit;
+        this.age = age;
     }
 
     inputCreate() {
         const modalWindow = document.querySelector(".modalWindow");
         const addVisitButton = document.querySelector(".addVisitButton");
         modalWindow.insertAdjacentHTML('beforeend', `<form class="formModal" action="#" method="POST">
-        <input class="modal_window_doctor" placeholder="Doctor" value="Dentist">
+        <input class="modal_window_doctor" placeholder="Doctor" value="Therapist">
         <input class="modal_window_reason" placeholder="Reason">
         <input class="modal_window_priority" placeholder="Priority">
         <input class="modal_window_name" placeholder="Name">
         <input class="modal_window_description" placeholder="Description">
-        <input id="date" type="date" class="modal_window_date" placeholder="Date">
-        <input type="date" class="modal_window_lastVisit" placeholder="lastVisit">
+        <input type="date" class="modal_window_date" placeholder="Date">
+        <input class="modal_window_age" placeholder="Age">
     </form>`);
         addVisitButton.addEventListener('click', () => {
+
             const inputName = document.querySelector(".modal_window_name").value;
             const inputDoctor = document.querySelector(".modal_window_doctor").value;
             const inputPurpose = document.querySelector(".modal_window_reason").value;
             const inputUrgency = document.querySelector(".modal_window_priority").value;
             const inputDescription = document.querySelector(".modal_window_description").value;
-            const inputLastVisit = document.querySelector(".modal_window_lastVisit").value;
+            const inputAge = document.querySelector(".modal_window_age").value;
             const inputDate = document.querySelector(".modal_window_date").value;
-            new CreateCardServerDentist(inputLastVisit, inputName, inputDoctor, inputUrgency, inputPurpose, inputDescription, inputDate).requestCreateCard()
+            new CardServerTherapist(inputAge, inputName, inputDoctor, inputUrgency, inputPurpose, inputDescription,inputDate).requestCreateCard()
         })
         addVisitButton.addEventListener('click', ()=> {
             modalWindow.remove()
-            alert("Поздравляем, визит к Дантисту создан!")
+            alert("Поздравляем, визит к Терапевту создан!")
         })
     }
 }
