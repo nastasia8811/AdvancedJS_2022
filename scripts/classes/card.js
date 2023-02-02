@@ -8,9 +8,7 @@ export class Card {
         this.urgency = urgency;
         this.description = description;
         this.id = id;
-
         this.date = date;
-        this.containerCards = document.createElement('div');
         this.container = document.createElement('div');
         this.changeVisit = document.createElement("button");
         this.deleteButton = document.createElement("button");

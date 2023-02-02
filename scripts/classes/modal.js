@@ -31,7 +31,7 @@ export class Modal {
 
 
         this.selectDoctor.insertAdjacentHTML('beforeend', `<div class="dropdown">
-  <button class="dropbtn btn btn-outline-success">Вибрати лікаря</button>
+  <button class="dropBtn btn btn-outline-success">Вибрати лікаря</button>
   <div id="myDropdown" class="dropdown-content">
     <a class ='selectCardiologist' href="#">Cardiologist</a>
     <a class ='selectDentist' href="#">Dentist</a>
@@ -39,10 +39,10 @@ export class Modal {
   </div>
 </div>`)
 const showDocList = document.getElementById("myDropdown")
-        const dropbtn = document.querySelector('.dropbtn')
-        dropbtn.addEventListener('click', (event) => {
+        const dropBtn = document.querySelector('.dropBtn')
+        dropBtn.addEventListener('click', (event) => {
             showDocList.classList.toggle("show");
-            if (!event.target.matches('.dropbtn')) {
+            if (!event.target.matches('.dropBtn')) {
                 const dropdowns = document.querySelector(".dropdown-content");
                 for (let i = 0; i < dropdowns.length; i++) {
                     const openDropdown = dropdowns[i];

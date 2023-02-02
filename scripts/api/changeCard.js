@@ -9,7 +9,6 @@ export class ChangeCardServer {
         this.description = description;
         this.date = date;
         this.id = id;
-        this.container = document.createElement('div');
     }
 
     render() {
