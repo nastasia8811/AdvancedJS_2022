@@ -25,7 +25,7 @@ export class Authorization {
         this.loginButton.addEventListener('click', () => {
             const email = document.querySelector(".email_form_item").value;
            const password = document.querySelector(".password_form_item").value;
-            //змінила щоб не логінитись:
+
             // const email = "f@f.com"
             // const password ="as"
             const authorisationResult = new MyLogin(email, password).request();
