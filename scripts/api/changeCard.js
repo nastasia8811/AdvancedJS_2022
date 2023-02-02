@@ -27,7 +27,7 @@ export class ChangeCardServer {
     </form>`);
 
         changeCard.addEventListener('click', () => {
-             this.name = document.querySelector(".modal_window_name").value;
+            this.name = document.querySelector(".modal_window_name").value;
             this.purpose = document.querySelector(".modal_window_purpose").value;
             this.urgency = document.querySelector(".modal_window_urgency").value;
             this.description = document.querySelector(".modal_window_description").value;
@@ -57,10 +57,13 @@ export class ChangeCardServer {
             .then(({status}) => {
                 if (status === 200) {
                   const containerID = document.getElementById(`${this.id}`);
+
                   new Card(this.name, this.doctor, this.urgency, this.purpose, this.description, this.date, this.id).createElements(containerID);
-                    containerID.remove();
                     modalWindow.remove();
+                    containerID.remove();
+                    new Card(this.name, this.doctor, this.urgency, this.purpose, this.description, this.date, this.id).createElements();
                 }
+
 
             })
             .catch(err => console.log(err));
