@@ -1,5 +1,3 @@
-//Мельник
-//import {filter} from "../functions/filterFunction.js";
 
 export const getCards =  () => {
 if (localStorage.getItem('token')) {

@@ -30,10 +30,6 @@ export class ChangeCardServer {
             this.purpose = document.querySelector(".modal_window_purpose").value;
             this.urgency = document.querySelector(".modal_window_urgency").value;
             this.description = document.querySelector(".modal_window_description").value;
-            // this.pressure = document.querySelector(".modal_window_pressure").value;
-            // this.mass = document.querySelector(".modal_window_mass").value;
-            // this.illness = document.querySelector(".modal_window_illness").value;
-            // this.age = document.querySelector(".modal_window_age").value;
             this.date = document.querySelector(".modal_window_date").value;
 
          fetch(`https://ajax.test-danit.com/api/v2/cards/${this.id}`, {

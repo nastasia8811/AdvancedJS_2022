@@ -1,94 +1,93 @@
-## Завдання
+### Med and Care
+This is the page where the Secretary can create cards describing scheduled visits to doctors.
 
-Вам потрібно створити сторінку, де Секретарка зможе створювати картки, що описують заплановані візити до лікарів.
+login: f@f.com
+password: As
 
-На сторінці повинні бути:
 
-1. Header (шапка) сторінки:
-   - у лівому верхньому кутку – логотип. Можна взяти будь-який
-   - у правому кутку – Кнопка "Вхід". Після успішної авторизації вона має змінюватися на Кнопку "Створити візит".
-2. Під Header – форма для фільтрації візитів. У цій формі має бути 3 поля:
-   - пошук за заголовком/вмістом візиту
-   - пошук за статусом (Open/Done) (візит пройшов чи ще ні)
-   - терміновість візиту (High, Normal, Low)
-3. Під формою фільтрів – список створених візитів.
+## Task
 
-#### Командна робота
+You need to create a page where the Secretary can create cards describing scheduled visits to doctors.
 
-На цьому проєкті всі студенти поділені на групи по три особи. Студенти можуть розподіляти між собою завдання самостійно. При здачі проекту необхідно у файлі `Readme.md` вказати, хто виконував якусь частину завдання.
+The page should include:
 
-#### Технічні вимоги 
+1. Header:
+    - In the top left corner – a logo (any logo can be used).
+    - In the right corner – a "Login" button. After successful authorization, it should change to a "Create Visit" button.
+2. Below the Header – a form to filter visits. This form should have three fields:
+    - Search by title/content of the visit.
+    - Search by status (Open/Done) (whether the visit has occurred or not).
+    - Urgency of the visit (High, Normal, Low).
+3. Below the filter form – a list of created visits.
 
- - При першому відвідуванні користувачем сторінки, на дошці має бути напис `No items have been added`. Цей же напис має бути, якщо у користувача немає жодної доданої картки (наприклад, він їх все видалив).
- - На кліку на кнопку **Вхід** з'являється модальне вікно, в якому користувач вводить свій email та пароль. Якщо він вірний – користувачеві на сторінці виводиться список раніше створених візитів.
- - По кліку на кнопку **Створити візит** з'являється модальне вікно, в якому можна створити нову картку.
- - Для створення класів потрібно використовувати синтаксис `class` із ES6.
- - Для AJAX запитів можна використовувати `fetch` або `axios`.
- - Після виконання будь-яких запитів AJAX, сторінка не повинна перезавантажуватися. При додаванні/видаленні картки та інших подібних операціях із сервера **не повинен** заново завантажуватися весь список карток. Необхідно використовувати дані з відповіді сервера та Javascript для оновлення інформації на сторінці.
- - При оновленні сторінки або її закритті раніше додані нотатки не повинні пропадати.
- - Бажано поділити проект на модулі за допомогою ES6 modules.
 
-##### Модальне вікно "Створити візит"
-   
-У модальному вікні повинні бути:
+#### Technical Requirements
 
-- Випадаючий список (select) з вибором лікаря. Залежно від обраного лікаря, під цим списком будуть з'являтися поля, які потрібно дозаповнити для візиту до цього лікаря.
-- У списку має бути три опції - **Кардіолог**, **Стоматолог**, **Терапевт**.
-- Після вибору лікаря зі списку, під ним повинні з'явитися поля для запису до цього лікаря. Декілька полів є однаковими для всіх трьох докторів:
-  - мета візиту
-  - короткий опис візиту
-  - дропдаун - терміновість (звичайна, пріоритетна, невідкладна)
-  - ПІБ
-- Також кожен з лікарів має свої унікальні поля для заповнення. Якщо вибрано опцію **Кардіолог**, додатково з'являються такі поля для введення інформації:
-  - звичайний тиск
-  - Індекс маси тіла
-  - перенесені захворювання серцево-судинної системи
-  - вік
-- Якщо вибрано опцію **Стоматолог**, додатково необхідно заповнити:
-  - дата останнього відвідування
-- Якщо вибрано опцію Терапевт, додатково необхідно заповнити:
-  - вік
-- Кнопка `Створити`. При натисканні на кнопку надсилається AJAX запит на відповідну адресу, і якщо у відповіді надійшла інформація про новостворену картку - створюється картка у Дошці візитів на сторінці, модальне вікно закривається.
-- Кнопка `Закрити` - закриває модальне вікно без збереження інформації та створення картки. По кліку на область поза модальним вікном - модальне вікно також закривається.
-- Усі поля вводу, незалежно від вибраної опції, крім поля для додаткових коментарів, є обов'язковими для введення даних. Валідацію на коректність даних робити необов'язково.
+- On the first visit to the page by the user, the board should display `No items have been added`. This message should also appear if the user has no added cards (for example, if they deleted all cards).
+- When clicking the **Login** button, a modal window should appear where the user enters their email and password. If correct, the user sees a list of previously created visits.
+- When clicking the **Create Visit** button, a modal window should appear where a new card can be created.
+- Use the `class` syntax from ES6 for creating classes.
+- For AJAX requests, you can use `fetch` or `axios`.
+- After performing any AJAX requests, the page should not reload. When adding/deleting a card or performing similar operations, the entire list of cards should not be reloaded from the server. Use the server response data and JavaScript to update the information on the page.
+- Previously added notes should not disappear when the page is refreshed or closed.
+- It is recommended to split the project into modules using ES6 modules.
 
-##### Картка, що описує візит
+##### Modal Window "Create Visit"
 
-Картка, яка створюється по кліку, з'являється на дошці завдань. Це має виглядати приблизно так:
+In the modal window, there should be:
 
-![інтерфейс](./img/2.png)
-   
-У ній мають бути:
- - ПІБ, які були введені під час створення картки
- - Лікар, до якого людина записана на прийом
- - Кнопка `Показати більше`. На кліку на неї картка розширюється, і з'являється решта інформації, яка була введена під час створення візиту
- - Кнопка `Редагувати`. При натисканні на неї замість текстового вмісту картки з'являється форма, де можна відредагувати введені поля. Така ж, як у модальному вікні під час створення картки
- - Іконка з хрестиком у верхньому правому кутку, при натисканні на яку картку буде видалено
+- A dropdown (select) to choose a doctor. Depending on the chosen doctor, fields that need to be filled out for the visit to that doctor should appear below this dropdown.
+- The dropdown should have three options - **Cardiologist**, **Dentist**, **Therapist**.
+- After selecting a doctor, additional fields should appear below for scheduling a visit to that doctor. Several fields are common to all three doctors:
+    - Purpose of the visit
+    - Short description of the visit
+    - Dropdown - urgency (normal, priority, urgent)
+    - Full Name
+- Additionally, each doctor has unique fields to fill out. If the **Cardiologist** option is selected, additional fields are:
+    - Usual blood pressure
+    - Body mass index
+    - Cardiovascular diseases
+    - Age
+- If the **Dentist** option is selected, an additional field to fill out is:
+    - Last visit date
+- If the **Therapist** option is selected, an additional field to fill out is:
+    - Age
+- A `Create` button. When clicked, an AJAX request is sent to the appropriate address, and if the response includes information about the newly created card, the card is created on the Visit Board on the page, and the modal window closes.
+- A `Close` button - closes the modal window without saving the information and creating a card. Clicking outside the modal window also closes it.
+- All input fields, except for the additional comments field, are mandatory. Validation for data correctness is optional.
 
-##### Фільтри візитів
+##### Visit Card
 
-Фільтр карток (поле input для введення тексту пошуку за заголовком або описом візиту, фільтр по статусу, по пріоритету) вам потрібно робити на фронт-енді - тобто при зміні `value` будь-якого елемента форми (вибраний пункт у списку, що було введено щось в `input`) ви фільтруєте список раніше отриманих з сервера карток, і відображаєте на екрані нову інформацію.
+The card created upon clicking should appear on the task board and should look approximately like this:
 
-За принципом роботи система має бути схожою на фільтри в інтернет-магазинах (наприклад, зліва [тут](https://rozetka.com.ua/notebooks/c80004/)).
+![interface](./img/2.png)
 
-##### Класи
+It should include:
+- Full Name, entered during card creation.
+- The doctor the person is scheduled to visit.
+- A `Show More` button. Clicking it expands the card to show the rest of the information entered during the visit creation.
+- An `Edit` button. When clicked, the card content turns into a form where the entered fields can be edited. The form should be similar to the modal window during card creation.
+- A cross icon in the top right corner. Clicking it deletes the card.
 
-У JavaScript коді обов'язково мають бути такі класи:
- - клас Modal (модальне вікно);
- - клас Visit (що описує загальні для всіх візитів до будь-якого лікаря поля та методи);
- - дочірні класи VisitDentist, VisitCardiologist, VisitTherapist;
+##### Visit Filters
 
-Методи та властивості кожного класу вам потрібно продумати самостійно. При необхідності ви можете додавати також інші класи.
+The card filter (input field for entering text to search by visit title or description, filter by status, by priority) should be implemented on the front-end. When the `value` of any form element changes (selected item in the dropdown, text entered in the `input`), the list of cards previously received from the server should be filtered, and the new information displayed on the screen.
 
-#### Вимоги до реалізації
+The system should work similarly to filters in online stores (e.g., on the left [here](https://rozetka.com.ua/notebooks/c80004/)).
 
-Дизайн може бути будь-який, але він має бути.
+##### Classes
 
-#### AJAX частина
+The JavaScript code must include the following classes:
+- Modal (modal window);
+- Visit (describes common fields and methods for all visits to any doctor);
+- Subclasses VisitDentist, VisitCardiologist, VisitTherapist;
 
-Вся необхідна документація по взаємодії з сервером AJAX знаходиться [тут](https://ajax.test-danit.com/api-pages/cards.html).
+You need to design the methods and properties of each class yourself. If necessary, you can also add other classes.
 
-#### Необов'язкове завдання підвищеної складності
+#### Implementation Requirements
 
- - При створенні картки візиту виконувати валідацію коректності введених даних. Правила для валідації можна придумати самостійно (наприклад, звичайний тиск повинен бути числом і перебувати в діапазоні від 50 до 160)
- - Додати можливість користувачеві переміщувати картки на дошці методом Drag&Drop. Такі маніпуляції з карткою не впливають на місце розташування інших карток. Після перетягування картки не потрібно "запам'ятовувати" її нове місце розташування. При перезавантаженні сторінки вона може повернутися на початкове місце.
+The design can be any, but it must be present.
+
+#### AJAX Part
+
+All necessary documentation for server interaction via AJAX can be found [here](https://ajax.test-danit.com/api-pages/cards.html).
